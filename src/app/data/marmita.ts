@@ -2,6 +2,7 @@ import * as Util from "../util/util";
 import * as Alimento from "./listaAlimento";
 import * as Receita from "./receita";
 
+
 var pure = Util.calcularMacrosReceita( "Purê de Batata Doce", Receita.ingredientespuredebatatadoce);
 var strogonoffDeFrango = Util.calcularMacrosReceita( "Strogonoff de Frango", Receita.ingredientesstrogonoffdefrango);
 

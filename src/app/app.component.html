@@ -1,10 +1,10 @@
-<mat-toolbar color="primary" class="toolbar">
+<mat-toolbar color="#primary" class="toolbar">
   Plano Diário de Refeições
 </mat-toolbar>
-
+<!-- 
 <div class="container body">
   <div class="left-panel-main">
-    <app-meallist></app-meallist>
+    
   </div>
   <div class="right-panel-main">
     <div class="container">
@@ -15,5 +15,20 @@
         <app-totaldailylist></app-totaldailylist>
       </div>
     </div>
+  </div>
+</div>  -->
+
+
+<div class="main-content">
+  <h2 style="margin-right: 10px;">Plano Diário de Refeições</h2>
+  <app-meallist [refeicoes]="refeicoes1"></app-meallist>
+</div>
+
+<div class="fixed-panel">
+  <div class="container-left">
+    <app-totalmeallist></app-totalmeallist>
+  </div>
+  <div class="container-right">
+    <app-totaldailylist></app-totaldailylist>
   </div>
 </div>

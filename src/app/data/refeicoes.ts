@@ -1,39 +1,69 @@
 import * as Util from "../util/util";
-import * as Alimento from "./listaAlimento";
+import * as Alimentos from "./listaAlimento";
 import * as Marmita from "./marmita";
+import { Alimento } from "../data/alimento";
 
-export const refeicoes = {
+export class Refeicoes {
+    preCafeDaManha: Alimento[];
+    cafeDaManha: Alimento[];
+    almoco: Alimento[];
+    lancheDaTarde: Alimento[];
+    jantar: Alimento[];
+    ceia: Alimento[];
+
+    constructor(
+        preCafeDaManha: Alimento[],
+        cafeDaManha: Alimento[],
+        almoco: Alimento[],
+        lancheDaTarde: Alimento[],
+        jantar: Alimento[],
+        ceia: Alimento[],
+    ) {
+        this.preCafeDaManha = preCafeDaManha;
+        this.cafeDaManha = cafeDaManha;
+        this.almoco = almoco;
+        this.lancheDaTarde = lancheDaTarde;
+        this.jantar = jantar;
+        this.ceia = ceia;
+    }
+ 
+
+   
+}
+
+export const refeicoes: Refeicoes = {
     preCafeDaManha: [
-      Util.setQuantidade(Alimento.maca,100),
-      Util.setQuantidade(Alimento.mamaoFormosa,100),
-      Util.setQuantidade(Alimento.kiwi,50),
-      Util.setQuantidade(Alimento.melao,100),
-      Util.setQuantidade(Alimento.pera,50),
+        Util.setQuantidade(Alimentos.maca, 100),
+        Util.setQuantidade(Alimentos.mamaoFormosa, 100),
+        Util.setQuantidade(Alimentos.kiwi, 50),
+        Util.setQuantidade(Alimentos.melao, 100),
+        Util.setQuantidade(Alimentos.pera, 50),
 
     ],
     cafeDaManha: [
-      Util.setQuantidade(Alimento.ovos, 100),
-      Util.setQuantidade(Alimento.azeiteDeOlive, 5),
-      Util.setQuantidade(Alimento.aveia, 30),
-      Util.setQuantidade(Alimento.brócolis, 30),
-      Util.setQuantidade(Alimento.pao,30),
+        Util.setQuantidade(Alimentos.ovos, 100),
+        Util.setQuantidade(Alimentos.azeiteDeOlive, 5),
+        Util.setQuantidade(Alimentos.aveia, 30),
+        Util.setQuantidade(Alimentos.brócolis, 30),
+        Util.setQuantidade(Alimentos.pao, 30),
     ],
     almoco: [
-      ...Marmita.marmita
+        ...Marmita.marmita
     ],
     lancheDaTarde: [
-     Util.setQuantidade(Alimento.leite, 300),
-     Util.setQuantidade(Alimento.whey, 30),
-     Util.setQuantidade(Alimento.banana, 110),
-     Util.setQuantidade(Alimento.morango, 50),
+        Util.setQuantidade(Alimentos.leite, 300),
+        Util.setQuantidade(Alimentos.whey, 30),
+        Util.setQuantidade(Alimentos.banana, 110),
+        Util.setQuantidade(Alimentos.morango, 50),
     ],
     jantar: [
-      ...Marmita.marmita
-     ],
+        ...Marmita.marmita
+    ],
     ceia: [
-      Util.setQuantidade(Alimento.abacate, 100),
-      Util.setQuantidade(Alimento.amendoas, 15),
+        Util.setQuantidade(Alimentos.abacate, 100),
+        Util.setQuantidade(Alimentos.amendoas, 15),
     ]
-  };
+};
+
 
 

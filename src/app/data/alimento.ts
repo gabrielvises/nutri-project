@@ -20,12 +20,12 @@ export class Alimento {
     }
   }
 
-  interface Nutriente {
+  export interface Nutriente {
     ref: number;
     real: number;
   }
   
-  interface Macros {
+  export interface Macros {
     calorias: Nutriente;
     proteina: Nutriente;
     carboidratos: Nutriente;
@@ -33,7 +33,7 @@ export class Alimento {
     fibras: Nutriente;
   }
   
-  interface Vitaminas {
+  export interface Vitaminas {
     A: Nutriente;
     B1: Nutriente;
     B2: Nutriente;
@@ -49,7 +49,7 @@ export class Alimento {
     K: Nutriente;
   }
   
-  interface Minerais {
+  export interface Minerais {
     Cálcio: Nutriente;
     Ferro: Nutriente;
     Magnésio: Nutriente;
