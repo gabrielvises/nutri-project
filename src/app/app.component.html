@@ -1,3 +1,4 @@
+
 <mat-toolbar color="#primary" class="toolbar">
   Plano Diário de Refeições
 </mat-toolbar>
@@ -6,12 +7,12 @@
   <div class="left-panel-main">
     
   </div>
-  <div class="right-panel-main">
+  <div class="right-panel-main"> 
     <div class="container">
       <div class="left-panel">
         <app-totalmeallist></app-totalmeallist>
       </div>
-      <div class="right-panel">
+      <div class="right-panel"> 
         <app-totaldailylist></app-totaldailylist>
       </div>
     </div>
@@ -26,9 +27,10 @@
 
 <div class="fixed-panel">
   <div class="container-left">
-    <app-totalmeallist></app-totalmeallist>
+    <app-totalmeallist [totalMacroDia]="totalMacroDia" [totalMacroRefeicao]="totalkcalPorRefeicao"></app-totalmeallist>
   </div>
   <div class="container-right">
-    <app-totaldailylist></app-totaldailylist>
+    <app-totaldailylist [totalMacroDia]="totalMacroDia" [distribuicaoMacros]="distribuicaoMacros" [totalNutrientes]="totalNutrientes"
+      [macrosPorKg]="macrosPorKg"></app-totaldailylist>
   </div>
 </div>

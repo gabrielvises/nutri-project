@@ -1,0 +1,56 @@
+.item-total.tabela {
+    display: table;
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .tabela-cabecalho {
+    text-align: center;
+  }
+  .tabela-cabecalho, .tabela-linha {
+    display: table-row;
+    
+  }
+  
+  .tabela-cabecalho div, .tabela-linha div {
+    display: table-cell;
+    padding: 8px;
+    border: 1px solid #ddd;
+  }
+  
+  .tabela-cabecalho div {
+    font-weight: bold;
+    background-color: #f4f4f4;
+  }
+  
+  .tabela-linha:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+
+  .item-total.tabela-vitaminas {
+    display: table;
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .tabela-cabecalho, .tabela-linha {
+    display: table-row;
+    
+  }
+
+  
+  .tabela-cabecalho div, .tabela-linha div {
+    display: table-cell;
+    padding: 3.5px; /* Reduz o padding */
+    border: 1px solid #ddd;
+    font-size: 15px; /* Ajusta o tamanho da fonte */
+  }
+  
+  .tabela-cabecalho div {
+    font-weight: bold;
+    background-color: #f4f4f4;
+  }
+  
+  .tabela-linha:nth-child(even) {
+    background-color: #f9f9f9;
+  }

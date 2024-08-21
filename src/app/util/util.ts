@@ -239,42 +239,56 @@ export function rankearPorNutriente(
 }
 
 // Função para calcular os totais diários
-export function calcularTotalKcalDia(refeicoes: Refeicoes) {
-    let totalCalorias = 0;
-    let totalProteina = 0;
-    let totalCarboidratos = 0;
-    let totalGordura = 0;
-    let totalFibras = 0;
+export function calcularMacroTotalDia(totalKcal: TotalKcal[]): TotalKcal {
+    var aux = new TotalKcal();
 
+
+
+    totalKcal.forEach(macro => {
+            aux.calorias += macro.calorias;
+            aux.proteina += macro.proteina;
+            aux.carboidratos += macro.carboidratos;
+            aux.gordura += macro.gordura;
+            aux.fibras += macro.fibras; 
+    });
+
+
+    return aux;
+}
+
+export function calcularTotalMacroPorRefeicao(refeicoes: Refeicoes): TotalKcal[] {
+
+    var aux: TotalKcal[] = [];
     var ref: Alimento[][] = Object.values(refeicoes);
 
-    ref.forEach(refeicao => {
-        refeicao.forEach(itemAlimento => {
-            totalCalorias += itemAlimento.macros.calorias.real;
-            totalProteina += itemAlimento.macros.proteina.real;
-            totalCarboidratos += itemAlimento.macros.carboidratos.real;
-            totalGordura += itemAlimento.macros.gordura.real;
-            totalFibras += itemAlimento.macros.fibras.real;
+    ref.forEach((refeicao, index) => {
+        aux[index] = { 
+            calorias: 0,
+            proteina: 0,
+            carboidratos: 0,
+            gordura: 0,
+            fibras: 0
+        };
+        refeicao.forEach((itemAlimento) => {
+            aux[index].calorias += itemAlimento.macros.calorias.real;
+            aux[index].proteina += itemAlimento.macros.proteina.real;
+            aux[index].carboidratos += itemAlimento.macros.carboidratos.real;
+            aux[index].gordura += itemAlimento.macros.gordura.real;
+            aux[index].fibras += itemAlimento.macros.fibras.real;
         });
     });
 
 
-    return {
-        totalCalorias,
-        totalProteina,
-        totalCarboidratos,
-        totalGordura,
-        totalFibras
-    };
+    return aux;
 }
 
 export function calcularDistribuicaoMacros(totais: TotalKcal): DistribuicaoMacros {
-    const totalMacros = totais.totalCalorias;
+    const totalMacros = totais.calorias;
     return {
-        proteinaPercentual: (totais.totalProteina * 4 / totalMacros) * 100,
-        carboidratosPercentual: (totais.totalCarboidratos * 4 / totalMacros) * 100,
-        gorduraPercentual: (totais.totalGordura * 9 / totalMacros) * 100,
-        fibrasPercentual: totais.totalFibras,
+        proteinaPercentual: (totais.proteina * 4 / totalMacros) * 100,
+        carboidratosPercentual: (totais.carboidratos * 4 / totalMacros) * 100,
+        gorduraPercentual: (totais.gordura * 9 / totalMacros) * 100,
+        fibrasPercentual: totais.fibras,
     };
 }
 
@@ -282,9 +296,9 @@ export function calcularDistribuicaoMacros(totais: TotalKcal): DistribuicaoMacro
 export function calcularMacrosPorKg(totais: TotalKcal, peso: number): MacroPorKg {
 
     var macroporKg = new MacroPorKg();
-    macroporKg.proteinaPorKg = totais.totalProteina / peso,
-        macroporKg.carboidratosPorKg = totais.totalCarboidratos / peso,
-        macroporKg.gorduraPorKg = totais.totalGordura / peso
+    macroporKg.proteinaPorKg = totais.proteina / peso,
+        macroporKg.carboidratosPorKg = totais.carboidratos / peso,
+        macroporKg.gorduraPorKg = totais.gordura / peso
     return macroporKg;
 }
 
@@ -308,12 +322,12 @@ export function calcularNutrientesTotais(refeicoes: Refeicoes, totalNutrientes: 
             totalNutrientes.E += itemAlimento.vitaminas.E.real;
             totalNutrientes.K += itemAlimento.vitaminas.K.real;
 
-            totalNutrientes.Cálcio += itemAlimento.minerais.Cálcio.real;
+            totalNutrientes.Calcio += itemAlimento.minerais.Cálcio.real;
             totalNutrientes.Ferro += itemAlimento.minerais.Ferro.real;
-            totalNutrientes.Magnésio += itemAlimento.minerais.Magnésio.real;
-            totalNutrientes.Fósforo += itemAlimento.minerais.Fósforo.real;
-            totalNutrientes.Potássio += itemAlimento.minerais.Potássio.real;
-            totalNutrientes.Sódio += itemAlimento.minerais.Sódio.real;
+            totalNutrientes.Magnesio += itemAlimento.minerais.Magnésio.real;
+            totalNutrientes.Fosforo += itemAlimento.minerais.Fósforo.real;
+            totalNutrientes.Potassio += itemAlimento.minerais.Potássio.real;
+            totalNutrientes.Sodio += itemAlimento.minerais.Sódio.real;
             totalNutrientes.Zinco += itemAlimento.minerais.Zinco.real;
 
 

@@ -1,16 +1,16 @@
 export class TotalKcal {
-    totalCalorias: number;
-    totalProteina: number;
-    totalCarboidratos: number;
-    totalGordura: number;
-    totalFibras: number;
+    calorias: number;
+    proteina: number;
+    carboidratos: number;
+    gordura: number;
+    fibras: number;
 
     constructor() {
-        this.totalCalorias = 0;
-        this.totalProteina = 0;
-        this.totalCarboidratos = 0;
-        this.totalGordura = 0;
-        this.totalFibras = 0;
+        this.calorias = 0;
+        this.proteina = 0;
+        this.carboidratos = 0;
+        this.gordura = 0;
+        this.fibras = 0; 
     }
 
 
@@ -31,12 +31,12 @@ export class TotalNutrientes {
     D: number;
     E: number;
     K: number;
-    Cálcio: number;
+    Calcio: number;
     Ferro: number;
-    Magnésio: number;
-    Fósforo: number;
-    Potássio: number;
-    Sódio: number;
+    Magnesio: number;
+    Fosforo: number;
+    Potassio: number;
+    Sodio: number;
     Zinco: number;
 
     constructor() {
@@ -53,12 +53,12 @@ export class TotalNutrientes {
         this.D = 0;
         this.E = 0;
         this.K = 0;
-        this.Cálcio = 0;
+        this.Calcio = 0;
         this.Ferro = 0;
-        this.Magnésio = 0;
-        this.Fósforo = 0;
-        this.Potássio = 0;
-        this.Sódio = 0;
+        this.Magnesio = 0;
+        this.Fosforo = 0;
+        this.Potassio = 0;
+        this.Sodio = 0;
         this.Zinco = 0;
     }
 
@@ -90,7 +90,7 @@ export class DistribuicaoMacros {
     }
 }
 
-export const recomendado = {
+export const recomendado: TotalNutrientes = {
     A: 900, //µg
     B1: 1.2, //mg 
     B2: 1.3, //mg
@@ -104,12 +104,12 @@ export const recomendado = {
     D: 5000, //UI
     E: 15, //mg
     K: 120, //µg
-    Cálcio: 1000, //mg
+    Calcio: 1000, //mg
     Ferro: 8, //mg
-    Magnésio: 400, //mg
-    Fósforo: 700, //mg
-    Potássio: 3500, //mg
-    Sódio: 2300, //mg
+    Magnesio: 400, //mg
+    Fosforo: 700, //mg
+    Potassio: 3500, //mg
+    Sodio: 2300, //mg
     Zinco: 11, //mg
 
 }

@@ -47,7 +47,7 @@ export const refeicoes: Refeicoes = {
         Util.setQuantidade(Alimentos.brócolis, 30),
         Util.setQuantidade(Alimentos.pao, 30),
     ],
-    almoco: [
+    almoco: [ 
         ...Marmita.marmita
     ],
     lancheDaTarde: [
