@@ -1,0 +1,78 @@
+.container {
+    display: flex;
+    height: 100vh;
+    
+    /* Altura total da tela */
+}
+
+.body {
+    padding-top: 64px;
+}
+
+/* Painel esquerdo principal */
+.left-panel-main {
+    flex: 1;
+    padding: 10px;
+    background-color: #f0f0f0;
+    overflow-y: auto; /* Permite rolagem vertical */
+}
+
+.right-panel-main {
+    width: 300px; /* Largura fixa para o painel direito principal */
+    position: relative; /* Mantém o painel direito na posição relativa dentro do container */
+}
+
+/* Painel esquerdo fixo */
+.left-panel {
+    width: 350px; /* Largura fixa para o painel esquerdo */
+    position: fixed; /* Fixar o painel esquerdo */
+    top: 64px;
+    right: 350px; /* Ajuste a posição para garantir que fique à esquerda do painel direito */
+    height: calc(100vh - 64px); /* Altura total menos a altura da toolbar */
+    background-color: #D9D9D9; /* Cor de fundo opcional */
+    padding: 10px; /* Espaçamento interno opcional */
+    overflow-y: auto; /* Permite rolagem vertical */
+    box-sizing: border-box; /* Inclui padding na largura total */
+}
+
+/* Painel direito fixo */
+.right-panel {
+    width: 350px; /* Largura fixa para o painel direito */
+    position: fixed; /* Fixar o painel direito */
+    top: 64px;
+    right: 0;
+    height: calc(100vh - 64px); /* Altura total menos a altura da toolbar */
+    background-color: #d0d0d0; /* Cor de fundo opcional */
+    padding: 10px; /* Espaçamento interno opcional */
+    box-sizing: border-box; /* Inclui padding na largura total */
+}
+
+/* 
+ .left-panel {
+    width: 300px; 
+    position: fixed; 
+    top: 64px;
+    right: 300px;
+    height: 100vh; 
+    background-color: #F0F0F0; 
+    padding: 10px; 
+  }
+  
+  .right-panel {
+
+    width: 300px; 
+    position: fixed; 
+    top: 64px;
+    right: 0;
+    height: 100vh; 
+    background-color: #d0d0d0; 
+    padding: 10px; 
+  } */
+   
+mat-toolbar {
+    height: 64px;
+    position: fixed;
+    z-index: 100;
+    width: 100%  !important;
+}
+
