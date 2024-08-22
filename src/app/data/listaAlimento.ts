@@ -672,25 +672,25 @@ export const morango = new Alimento(
     A: { ref: 2, real: 0 },
     B1: { ref: 0.02, real: 0 },
     B2: { ref: 0.02, real: 0 },
-    B3: { ref: 0.10, real: 0 },
+    B3: { ref: 0.39, real: 0 },
     B5: { ref: 0.17, real: 0 },
-    B6: { ref: 0.05, real: 0 },
+    B6: { ref: 0.03, real: 0 },
     B7: { ref: 0.0, real: 0 },
     B9: { ref: 17.00, real: 0 },
     B12: { ref: 0.00, real: 0 },
     C: { ref: 58.8, real: 0 },
     D: { ref: 0.0, real: 0 },
     E: { ref: 0.30, real: 0 },
-    K: { ref: 2.0, real: 0 }
+    K: { ref: 2.2, real: 0 }
   },
   {
-    Cálcio: { ref: 2, real: 0 },
+    Cálcio: { ref: 16, real: 0 },
     Ferro: { ref: 0.41, real: 0 },
     Magnésio: { ref: 13, real: 0 },
     Fósforo: { ref: 24, real: 0 },
     Potássio: { ref: 153, real: 0 },
     Sódio: { ref: 1, real: 0 },
-    Zinco: { ref: 0.14, real: 0 }
+    Zinco: { ref: 0.12, real: 0 }
   }
 )
   ;
@@ -815,7 +815,7 @@ export const polpaDeTomate = new Alimento(
     fibras: { ref: 1.2, real: 0 },
   },
   {
-    A: { ref: 700, real: 0 },
+    A: { ref: 22, real: 0 },
     B1: { ref: 0.03, real: 0 },
     B2: { ref: 0.03, real: 0 },
     B3: { ref: 0.53, real: 0 },

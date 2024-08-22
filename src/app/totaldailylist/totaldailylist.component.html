@@ -1,255 +1,90 @@
 <div style="margin: 2px 0px 8px 0px">
-    <!-- *ngFor="let totalMacroRefeicao of totalMacroRefeicao; let i = index"     -->
-    <h6 style="margin-bottom: 10px;">Total do Dia:</h6>
+  <!-- *ngFor="let totalMacroRefeicao of totalMacroRefeicao; let i = index"     -->
+  <h6 style="margin-bottom: 10px;">Total do Dia:</h6>
 
-    <mat-card class="meal-card">
+  <mat-card class="meal-card">
 
-        <mat-card-content>
-            <div class="macros">
-                <div>Calorias: {{totalMacroDia.calorias.toFixed(2)}} kcal</div>
-                <div>Proteína: {{totalMacroDia.proteina.toFixed(2)}}g</div>
-                <div>Carboidratos: {{totalMacroDia.carboidratos.toFixed(2)}}g</div>
-                <div>Gordura: {{totalMacroDia.gordura.toFixed(2)}}g</div>
-                <div>Fibras: {{totalMacroDia.fibras.toFixed(2)}}g</div>
-            </div>
-        </mat-card-content>
-    </mat-card>
+    <mat-card-content>
+      <div class="macros">
+        <div>Calorias: {{totalMacroDia.calorias.toFixed(2)}} kcal</div>
+        <div>Proteína: {{totalMacroDia.proteina.toFixed(2)}}g</div>
+        <div>Carboidratos: {{totalMacroDia.carboidratos.toFixed(2)}}g</div>
+        <div>Gordura: {{totalMacroDia.gordura.toFixed(2)}}g</div>
+        <div>Fibras: {{totalMacroDia.fibras.toFixed(2)}}g</div>
+      </div>
+    </mat-card-content>
+  </mat-card>
 </div>
 
 <div style="margin: 2px 0px 8px 0px">
-    <!-- *ngFor="let totalMacroRefeicao of totalMacroRefeicao; let i = index"     -->
-    <h6 style="margin-bottom: 10px;">Distribuição de Macros:</h6>
+  <!-- *ngFor="let totalMacroRefeicao of totalMacroRefeicao; let i = index"     -->
+  <h6 style="margin-bottom: 10px;">Distribuição de Macros:</h6>
 
-    <mat-card class="meal-card">
+  <mat-card class="meal-card">
 
-        <mat-card-content>
-            <div>
-                <div>Proteína: {{distribuicaoMacros.proteinaPercentual.toFixed(2)}}%</div>
-                <div>Carboidratos: {{distribuicaoMacros.carboidratosPercentual.toFixed(2)}}%</div>
-                <div>Gordura: {{distribuicaoMacros.gorduraPercentual.toFixed(2)}}%</div>
-            </div>
-        </mat-card-content>
-    </mat-card>
+    <mat-card-content>
+      <div>
+        <div>Proteína: {{distribuicaoMacros.proteinaPercentual.toFixed(2)}}%</div>
+        <div>Carboidratos: {{distribuicaoMacros.carboidratosPercentual.toFixed(2)}}%</div>
+        <div>Gordura: {{distribuicaoMacros.gorduraPercentual.toFixed(2)}}%</div>
+      </div>
+    </mat-card-content>
+  </mat-card>
 </div>
 
 <div style="margin: 2px 0px 8px 0px">
-    <!-- *ngFor="let totalMacroRefeicao of totalMacroRefeicao; let i = index"     -->
-    <h6 style="margin-bottom: 10px;">Macros por Kg Corporal:</h6>
+  <!-- *ngFor="let totalMacroRefeicao of totalMacroRefeicao; let i = index"     -->
+  <h6 style="margin-bottom: 10px;">Macros por Kg Corporal:</h6>
 
-    <mat-card class="meal-card">
+  <mat-card class="meal-card">
 
-        <mat-card-content>
-            <div>
-                <div>Proteína: {{macrosPorKg.proteinaPorKg.toFixed(2)}}g/kg</div>
-                <div>Carboidratos: {{macrosPorKg.carboidratosPorKg.toFixed(2)}}g/kg</div>
-                <div>Gordura: {{macrosPorKg.gorduraPorKg.toFixed(2)}}g/kg</div>
-            </div>
-        </mat-card-content>
-    </mat-card>
+    <mat-card-content>
+      <div>
+        <div>Proteína: {{macrosPorKg.proteinaPorKg.toFixed(2)}}g/kg</div>
+        <div>Carboidratos: {{macrosPorKg.carboidratosPorKg.toFixed(2)}}g/kg</div>
+        <div>Gordura: {{macrosPorKg.gorduraPorKg.toFixed(2)}}g/kg</div>
+      </div>
+    </mat-card-content>
+  </mat-card>
 </div>
 
 <div style="margin: 2px 0px 8px 0px">
-    <!-- *ngFor="let totalMacroRefeicao of totalMacroRefeicao; let i = index"     -->
-    <h6 style="margin-bottom: 10px;">Vitaminas e Minerais:</h6>
+  <!-- *ngFor="let totalMacroRefeicao of totalMacroRefeicao; let i = index"     -->
+  <h6 style="margin-bottom: 10px;">Vitaminas e Minerais:</h6>
 
-    <mat-card class="meal-card">
+  <!-- 
+      <mat-card class="meal-card">
+    <mat-card-content> -->
+  <div class="item-total tabela-vitaminas">
+    <div class="tabela-cabecalho">
+      <div>Nome</div>
+      <div>Quantidade</div>
+      <div>Total diário</div>
+      <div>%</div>
+    </div>
+    <div *ngFor="let vitamina of vitaminas" class="tabela-linha">
+      <div>{{vitamina.nome}}</div>
+      <div class="tooltip-container">
+        <span class="quantity" [mtxTooltip]="tooltipTpl" [mtxTooltipContext]="{ alimentos: vitamina.lista } "
+          [mtxTooltipPosition]="'above'">{{vitamina.total.toFixed(1)}} {{vitamina.unidade}}</span>
+        <!-- <span class="tooltip-text"><ul>{{vitamina.lista}}</ul></span> -->
+      </div>
+      <div>{{vitamina.recomendado}} {{vitamina.unidade}}</div>
+      <div>{{(vitamina.total*100/vitamina.recomendado).toFixed()}}%</div>
 
-        <mat-card-content>
-            <div>
-               
+      <ng-template #tooltipTpl let-alimentos="alimentos">
 
-                <div class="item-total tabela-vitaminas">
-                    <div class="tabela-cabecalho">
-                      <div>Nome</div>
-                      <div>Quantidade</div>
-                      <div>Total diário</div>
-                      <div>%</div>
-                    </div>
-                    <div class="tabela-linha">
-                      <div>A</div>
-                      <div class="tooltip-container">
-                        <span class="quantity">{{totalNutrientes.A.toFixed(1)}} µg</span>
-                        <!-- <span class="tooltip-text"><ul>{{listaA}}</ul></span> -->
-                      </div>
-                      <div>{{recomendado.A}} µg</div>
-                      <div>{{(totalNutrientes.A*100/recomendado.A).toFixed()}}%</div>
-                    </div>
-                    <div class="tabela-linha">
-                      <div>B1</div>
-                         <div class="tooltip-container">
-                        <span class="quantity">{{totalNutrientes.B1.toFixed(1)}} mg</span>
-                        <!-- <span class="tooltip-text"><ul>{{listaB1}}</ul></span> -->
-                      </div>
-                      <div>{{recomendado.B1}} mg</div>
-                      <div>{{(totalNutrientes.B1*100/recomendado.B1).toFixed()}}%</div>
-                    </div>
-                    <div class="tabela-linha">
-                      <div>B2</div>
-                         <div class="tooltip-container">
-                        <span class="quantity">{{totalNutrientes.B2.toFixed(1)}} mg</span>
-                        <!-- <span class="tooltip-text"><ul>{{listaB2}}</ul></span> -->
-                      </div>
-                      <div>{{recomendado.B2}} mg</div>
-                      <div>{{(totalNutrientes.B2*100/recomendado.B2).toFixed()}}%</div>
-                    </div>
-                    <div class="tabela-linha">
-                      <div>B3</div>
-                         <div class="tooltip-container">
-                        <span class="quantity">{{totalNutrientes.B3.toFixed(1)}} mg</span>
-                        <!-- <span class="tooltip-text"><ul>{{listaB3}}</ul></span> -->
-                      </div>
-                      <div>{{recomendado.B3}} mg</div>
-                      <div>{{(totalNutrientes.B3*100/recomendado.B3).toFixed()}}%</div>
-                    </div>
-                    <div class="tabela-linha">
-                      <div>B5</div>
-                         <div class="tooltip-container">
-                        <span class="quantity">{{totalNutrientes.B5.toFixed(1)}} mg</span>
-                        <!-- <span class="tooltip-text"><ul>{{listaB5}}</ul></span> -->
-                      </div>
-                      <div>{{recomendado.B5}} mg</div>
-                      <div>{{(totalNutrientes.B5*100/recomendado.B5).toFixed()}}%</div>
-                    </div>
-                    <div class="tabela-linha">
-                      <div>B6</div>
-                         <div class="tooltip-container">
-                        <span class="quantity">{{totalNutrientes.B6.toFixed(1)}} mg</span>
-                        <!-- <span class="tooltip-text"><ul>{{listaB6}}</ul></span> -->
-                      </div>
-                      <div>{{recomendado.B6}} mg</div>
-                      <div>{{(totalNutrientes.B6*100/recomendado.B6).toFixed()}}%</div>
-                    </div>
-                    <div class="tabela-linha">
-                      <div>B7</div>
-                         <div class="tooltip-container">
-                        <span class="quantity">{{totalNutrientes.B7.toFixed(1)}} µg</span>
-                        <!-- <span class="tooltip-text"><ul>{{listaB7}}</ul></span> -->
-                      </div>
-                      <div>{{recomendado.B7}} µg</div>
-                      <div>{{(totalNutrientes.B7*100/recomendado.B7).toFixed()}}%</div>
-                    </div>
-                    <div class="tabela-linha">
-                      <div>B9</div>
-                         <div class="tooltip-container">
-                        <span class="quantity">{{totalNutrientes.B9.toFixed(1)}} µg</span>
-                        <!-- <span class="tooltip-text"><ul>{{listaB9}}</ul></span> -->
-                      </div>
-                      <div>{{recomendado.B9}} µg</div>
-                      <div>{{(totalNutrientes.B9*100/recomendado.B9).toFixed()}}%</div>
-                    </div>
-                    <div class="tabela-linha">
-                      <div>B12</div>
-                         <div class="tooltip-container">
-                        <span class="quantity">{{totalNutrientes.B12.toFixed(1)}} µg</span>
-                        <!-- <span class="tooltip-text"><ul>{{listaB12}}</ul></span> -->
-                      </div>
-                      <div>{{recomendado.B12}} µg</div>
-                      <div>{{(totalNutrientes.B12*100/recomendado.B12).toFixed()}}%</div>
-                    </div>
-                    <div class="tabela-linha">
-                      <div>C</div>
-                         <div class="tooltip-container">
-                        <span class="quantity">{{totalNutrientes.C.toFixed(1)}} mg</span>
-                        <!-- <span class="tooltip-text"><ul>{{listaC}}</ul></span> -->
-                      </div>
-                      <div>{{recomendado.C}} mg</div>
-                      <div>{{(totalNutrientes.C*100/recomendado.C).toFixed()}}%</div>
-                    </div>
-                    <div class="tabela-linha">
-                      <div>D</div>
-                         <div class="tooltip-container">
-                        <span class="quantity">{{totalNutrientes.D.toFixed(1)}} UI</span>
-                        <!-- <span class="tooltip-text"><ul>{{listaD}}</ul></span> -->
-                      </div>
-                      <div>{{recomendado.D}} UI</div>
-                      <div>{{(totalNutrientes.D*100/recomendado.D).toFixed()}}%</div>
-                    </div>
-                    <div class="tabela-linha">
-                      <div>E</div>
-                         <div class="tooltip-container">
-                        <span class="quantity">{{totalNutrientes.E.toFixed(1)}} mg</span>
-                        <!-- <span class="tooltip-text"><ul>{{listaE}}</ul></span> -->
-                      </div>
-                      <div>{{recomendado.E}} mg</div>
-                      <div>{{(totalNutrientes.E*100/recomendado.E).toFixed()}}%</div>
-                    </div>
-                    <div class="tabela-linha">
-                      <div>K</div>
-                         <div class="tooltip-container">
-                        <span class="quantity">{{totalNutrientes.K.toFixed(1)}} µg</span>
-                        <!-- <span class="tooltip-text"><ul>{{listaK}}</ul></span> -->
-                      </div>
-                      <div>{{recomendado.K}} µg</div>
-                      <div>{{(totalNutrientes.K*100/recomendado.K).toFixed()}}%</div>
-                    </div>
-                     <div class="tabela-linha">
-                      <div>Cálcio</div>
-                         <div class="tooltip-container">
-                        <span class="quantity">{{totalNutrientes.Calcio.toFixed(1)}} mg</span>
-                        <!-- <span class="tooltip-text"><ul>{{listaCálcio}}</ul></span> -->
-                      </div>
-                      <div>{{recomendado.Calcio}} mg </div>
-                      <div>{{(totalNutrientes.Calcio*100/recomendado.Calcio).toFixed()}}%</div>
-                    </div>
-                    <div class="tabela-linha">
-                      <div>Ferro</div>
-                         <div class="tooltip-container">
-                        <span class="quantity">{{totalNutrientes.Ferro.toFixed(1)}} mg</span>
-                        <!-- <span class="tooltip-text"><ul>{{listaFerro}}</ul></span> -->
-                      </div>
-                      <div>{{recomendado.Ferro}} mg</div>
-                      <div>{{(totalNutrientes.Ferro*100/recomendado.Ferro).toFixed()}}%</div>
-                    </div>
-                    <div class="tabela-linha">
-                      <div>Magnésio</div>
-                         <div class="tooltip-container">
-                        <span class="quantity">{{totalNutrientes.Magnesio.toFixed(1)}} mg</span>
-                        <!-- <span class="tooltip-text"><ul>{{listaMagnésio}}</ul></span> -->
-                      </div>
-                      <div>{{recomendado.Magnesio}} mg</div>
-                      <div>{{(totalNutrientes.Magnesio*100/recomendado.Magnesio).toFixed()}}%</div>
-                    </div>
-                    <div class="tabela-linha">
-                      <div>Fósforo</div>
-                         <div class="tooltip-container">
-                        <span class="quantity">{{totalNutrientes.Fosforo.toFixed(1)}} mg</span>
-                        <!-- <span class="tooltip-text"><ul>{{listaFosforo}}</ul></span> -->
-                      </div>
-                      <div>{{recomendado.Fosforo}} mg</div>
-                      <div>{{(totalNutrientes.Fosforo*100/recomendado.Fosforo).toFixed()}}%</div>
-                    </div>
-                    <div class="tabela-linha">
-                      <div>Potássio</div>
-                         <div class="tooltip-container">
-                        <span class="quantity">{{totalNutrientes.Potassio.toFixed(1)}} mg</span>
-                        <!-- <span class="tooltip-text"><ul>{{listaPotassio}}</ul></span> -->
-                      </div>
-                      <div>{{recomendado.Potassio}} mg</div>
-                      <div>{{(totalNutrientes.Potassio*100/recomendado.Potassio).toFixed()}}%</div>
-                    </div>
-                    <div class="tabela-linha">
-                      <div>Sódio</div>
-                         <div class="tooltip-container">
-                        <span class="quantity">{{totalNutrientes.Sodio.toFixed(1)}} mg</span>
-                        <!-- <span class="tooltip-text"><ul>{{listaSodio}}</ul></span> -->
-                      </div>
-                      <div>{{recomendado.Sodio}} mg</div>
-                      <div>{{(totalNutrientes.Sodio*100/recomendado.Sodio).toFixed()}}%</div>
-                    </div>
-                    <div class="tabela-linha">
-                      <div>Zinco</div>
-                         <div class="tooltip-container">
-                        <span class="quantity">{{totalNutrientes.Zinco.toFixed(1)}} mg</span>
-                        <!-- <span class="tooltip-text"><ul>{{listaZinco}}</ul></span> -->
-                      </div>
-                      <div>{{recomendado.Zinco}} mg</div>
-                      <div>{{(totalNutrientes.Zinco*100/recomendado.Zinco).toFixed()}}%</div>
-                    </div>
-                  </div>
+        <div class="tooltip-content-wrapper">
+          <div *ngFor="let lista of vitamina.lista; let i = index;" class="tooltip-content">
+            <div class="tooltip-left">{{i+1}}- {{lista.nome}} {{lista.quantidadeNutriente}}g </div>
+            <div class="tooltip-right">{{ lista.quantidade.toFixed(2) }} {{vitamina.unidade}}</div>
 
+          </div>
+        </div>
+      </ng-template>
+    </div>
+  </div>
 
-
-            </div>
-        </mat-card-content>
-    </mat-card>
+  <!-- </mat-card-content> -->
+  <!-- </mat-card> -->
 </div>

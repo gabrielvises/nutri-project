@@ -54,3 +54,33 @@
   .tabela-linha:nth-child(even) {
     background-color: #f9f9f9;
   }
+
+  .tooltip-content-wrapper {
+  width: 335px; /* Define a largura fixa */
+
+}
+
+.tooltip-content {
+  display: flex;
+  justify-content: space-between;
+  
+  padding: 4px 0;
+}
+
+.tooltip-left {
+  text-align: left;
+  margin-right: 10px;
+  overflow: hidden; /* Para garantir que o texto não ultrapasse o limite */
+  text-overflow: ellipsis; /* Adiciona "..." se o texto for muito longo */
+  white-space: nowrap;
+}
+
+.tooltip-right {
+  text-align: right;
+  white-space: nowrap;
+}
+
+::ng-deep .mtx-mdc-tooltip-surface {
+  width: 350px !important;  /* Define a largura fixa */
+  max-width: 350px !important;
+}

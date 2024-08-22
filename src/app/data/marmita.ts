@@ -20,7 +20,7 @@ export const batatadoce = [
 export const marmita = [
     proteina[0],
     batatadoce[1],
-    Alimento.arrozIntegral,
+    Util.setQuantidade(Alimento.arrozIntegral,60),
     Util.setQuantidade(Alimento.brócolis,25),
     Util.setQuantidade(Alimento.feijaoPreto, 120),
     

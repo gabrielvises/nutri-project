@@ -1,6 +1,6 @@
 import { Alimento, Macros, Minerais, Vitaminas } from "../data/alimento";
-import { Refeicoes } from "../data/refeicoes";
-import { DistribuicaoMacros, MacroPorKg, TotalKcal, TotalNutrientes } from "../data/total";
+import { refeicoes, Refeicoes } from "../data/refeicoes";
+import { DistribuicaoMacros, MacroPorKg, recomendado, TotalKcal, TotalNutrientes } from "../data/total";
 
 
 
@@ -123,33 +123,34 @@ export function calcularMacrosReceita(nomeReceita: string, ingredientes: Aliment
 
 
 export function calcularMacrosAlimento(alimento: Alimento, quantidade: number): Alimento {
-    var alimentoCopia = alimento;
-    alimentoCopia.macros.calorias.real = (alimento.macros.calorias.ref * quantidade) / 100;
-    alimentoCopia.macros.proteina.real = (alimento.macros.proteina.ref * quantidade) / 100;
-    alimentoCopia.macros.carboidratos.real = (alimento.macros.carboidratos.ref * quantidade) / 100;
-    alimentoCopia.macros.gordura.real = (alimento.macros.gordura.ref * quantidade) / 100;
-    alimentoCopia.macros.fibras.real = (alimento.macros.fibras.ref * quantidade) / 100;
-    alimentoCopia.vitaminas.A.real = (alimento.vitaminas.A.ref * quantidade) / 100;
-    alimentoCopia.vitaminas.B1.real = (alimento.vitaminas.B1.ref * quantidade) / 100;
-    alimentoCopia.vitaminas.B2.real = (alimento.vitaminas.B2.ref * quantidade) / 100;
-    alimentoCopia.vitaminas.B3.real = (alimento.vitaminas.B3.ref * quantidade) / 100;
-    alimentoCopia.vitaminas.B5.real = (alimento.vitaminas.B5.ref * quantidade) / 100;
-    alimentoCopia.vitaminas.B6.real = (alimento.vitaminas.B6.ref * quantidade) / 100;
-    alimentoCopia.vitaminas.B7.real = (alimento.vitaminas.B7.ref * quantidade) / 100;
-    alimentoCopia.vitaminas.B9.real = (alimento.vitaminas.B9.ref * quantidade) / 100;
-    alimentoCopia.vitaminas.B12.real = (alimento.vitaminas.B12.ref * quantidade) / 100;
-    alimentoCopia.vitaminas.C.real = (alimento.vitaminas.C.ref * quantidade) / 100;
-    alimentoCopia.vitaminas.D.real = (alimento.vitaminas.D.ref * quantidade) / 100;
-    alimentoCopia.vitaminas.E.real = (alimento.vitaminas.E.ref * quantidade) / 100;
-    alimentoCopia.vitaminas.K.real = (alimento.vitaminas.K.ref * quantidade) / 100;
-    alimentoCopia.minerais.Cálcio.real = (alimento.minerais.Cálcio.ref * quantidade) / 100;
-    alimentoCopia.minerais.Ferro.real = (alimento.minerais.Ferro.ref * quantidade) / 100;
-    alimentoCopia.minerais.Magnésio.real = (alimento.minerais.Magnésio.ref * quantidade) / 100;
-    alimentoCopia.minerais.Fósforo.real = (alimento.minerais.Fósforo.ref * quantidade) / 100;
-    alimentoCopia.minerais.Potássio.real = (alimento.minerais.Potássio.ref * quantidade) / 100;
-    alimentoCopia.minerais.Sódio.real = (alimento.minerais.Sódio.ref * quantidade) / 100;
-    alimentoCopia.minerais.Zinco.real = (alimento.minerais.Zinco.ref * quantidade) / 100;
-    return alimentoCopia;
+
+    alimento.quantidade = quantidade;
+    alimento.macros.calorias.real = (alimento.macros.calorias.ref * quantidade) / 100;
+    alimento.macros.proteina.real = (alimento.macros.proteina.ref * quantidade) / 100;
+    alimento.macros.carboidratos.real = (alimento.macros.carboidratos.ref * quantidade) / 100;
+    alimento.macros.gordura.real = (alimento.macros.gordura.ref * quantidade) / 100;
+    alimento.macros.fibras.real = (alimento.macros.fibras.ref * quantidade) / 100;
+    alimento.vitaminas.A.real = (alimento.vitaminas.A.ref * quantidade) / 100;
+    alimento.vitaminas.B1.real = (alimento.vitaminas.B1.ref * quantidade) / 100;
+    alimento.vitaminas.B2.real = (alimento.vitaminas.B2.ref * quantidade) / 100;
+    alimento.vitaminas.B3.real = (alimento.vitaminas.B3.ref * quantidade) / 100;
+    alimento.vitaminas.B5.real = (alimento.vitaminas.B5.ref * quantidade) / 100;
+    alimento.vitaminas.B6.real = (alimento.vitaminas.B6.ref * quantidade) / 100;
+    alimento.vitaminas.B7.real = (alimento.vitaminas.B7.ref * quantidade) / 100;
+    alimento.vitaminas.B9.real = (alimento.vitaminas.B9.ref * quantidade) / 100;
+    alimento.vitaminas.B12.real = (alimento.vitaminas.B12.ref * quantidade) / 100;
+    alimento.vitaminas.C.real = (alimento.vitaminas.C.ref * quantidade) / 100;
+    alimento.vitaminas.D.real = (alimento.vitaminas.D.ref * quantidade) / 100;
+    alimento.vitaminas.E.real = (alimento.vitaminas.E.ref * quantidade) / 100;
+    alimento.vitaminas.K.real = (alimento.vitaminas.K.ref * quantidade) / 100;
+    alimento.minerais.Cálcio.real = (alimento.minerais.Cálcio.ref * quantidade) / 100;
+    alimento.minerais.Ferro.real = (alimento.minerais.Ferro.ref * quantidade) / 100;
+    alimento.minerais.Magnésio.real = (alimento.minerais.Magnésio.ref * quantidade) / 100;
+    alimento.minerais.Fósforo.real = (alimento.minerais.Fósforo.ref * quantidade) / 100;
+    alimento.minerais.Potássio.real = (alimento.minerais.Potássio.ref * quantidade) / 100;
+    alimento.minerais.Sódio.real = (alimento.minerais.Sódio.ref * quantidade) / 100;
+    alimento.minerais.Zinco.real = (alimento.minerais.Zinco.ref * quantidade) / 100;
+    return alimento;
 }
 
 
@@ -190,6 +191,7 @@ export function calcularmacrosENutrientes(refeicoes: Refeicoes) {
             itemAlimento.minerais.Zinco.real = (itemAlimento.minerais.Zinco.ref * itemAlimento.quantidade) / 100;
         });
     });
+    var b = 1;
 }
 
 
@@ -245,11 +247,11 @@ export function calcularMacroTotalDia(totalKcal: TotalKcal[]): TotalKcal {
 
 
     totalKcal.forEach(macro => {
-            aux.calorias += macro.calorias;
-            aux.proteina += macro.proteina;
-            aux.carboidratos += macro.carboidratos;
-            aux.gordura += macro.gordura;
-            aux.fibras += macro.fibras; 
+        aux.calorias += macro.calorias;
+        aux.proteina += macro.proteina;
+        aux.carboidratos += macro.carboidratos;
+        aux.gordura += macro.gordura;
+        aux.fibras += macro.fibras;
     });
 
 
@@ -262,7 +264,7 @@ export function calcularTotalMacroPorRefeicao(refeicoes: Refeicoes): TotalKcal[]
     var ref: Alimento[][] = Object.values(refeicoes);
 
     ref.forEach((refeicao, index) => {
-        aux[index] = { 
+        aux[index] = {
             calorias: 0,
             proteina: 0,
             carboidratos: 0,
@@ -336,4 +338,101 @@ export function calcularNutrientesTotais(refeicoes: Refeicoes, totalNutrientes: 
     });
 
 
+}
+
+
+export function formatarTabelaNutrientes(totalNutrientes: TotalNutrientes) {
+
+    var formatado = [
+        { nome: 'A', total: totalNutrientes.A, recomendado: recomendado.A, unidade: 'µg', lista: [] },
+        { nome: 'B1', total: totalNutrientes.B1, recomendado: recomendado.B1, unidade: 'mg', lista: [] },
+        { nome: 'B2', total: totalNutrientes.B2, recomendado: recomendado.B2, unidade: 'mg', lista: [] },
+        { nome: 'B3', total: totalNutrientes.B3, recomendado: recomendado.B3, unidade: 'mg', lista: [] },
+        { nome: 'B5', total: totalNutrientes.B5, recomendado: recomendado.B5, unidade: 'mg', lista: [] },
+        { nome: 'B6', total: totalNutrientes.B6, recomendado: recomendado.B6, unidade: 'mg', lista: [] },
+        { nome: 'B7', total: totalNutrientes.B7, recomendado: recomendado.B7, unidade: 'µg', lista: [] },
+        { nome: 'B9', total: totalNutrientes.B9, recomendado: recomendado.B9, unidade: 'µg', lista: [] },
+        { nome: 'B12', total: totalNutrientes.B12, recomendado: recomendado.B12, unidade: 'µg', lista: [] },
+        { nome: 'C', total: totalNutrientes.C, recomendado: recomendado.C, unidade: 'mg', lista: [] },
+        { nome: 'D', total: totalNutrientes.D, recomendado: recomendado.D, unidade: 'UI', lista: [] },
+        { nome: 'E', total: totalNutrientes.E, recomendado: recomendado.E, unidade: 'mg', lista: [] },
+        { nome: 'K', total: totalNutrientes.K, recomendado: recomendado.K, unidade: 'µg', lista: [] },
+        { nome: 'Cálcio', total: totalNutrientes.Calcio, recomendado: recomendado.Calcio, unidade: 'mg', lista: [] },
+        { nome: 'Ferro', total: totalNutrientes.Ferro, recomendado: recomendado.Ferro, unidade: 'mg', lista: [] },
+        { nome: 'Magnésio', total: totalNutrientes.Magnesio, recomendado: recomendado.Magnesio, unidade: 'mg', lista: [] },
+        { nome: 'Fósforo', total: totalNutrientes.Fosforo, recomendado: recomendado.Fosforo, unidade: 'mg', lista: [] },
+        { nome: 'Potássio', total: totalNutrientes.Potassio, recomendado: recomendado.Potassio, unidade: 'mg', lista: [] },
+        { nome: 'Sódio', total: totalNutrientes.Sodio, recomendado: recomendado.Sodio, unidade: 'mg', lista: [] },
+        { nome: 'Zinco', total: totalNutrientes.Zinco, recomendado: recomendado.Zinco, unidade: 'mg', lista: [] }
+    ];
+
+    const listaOrdenada = gerarListasOrdenadasPorNutriente();
+
+    // Atribui as listas ordenadas à variável formatado
+    formatado.forEach((item: any) => {
+        if (listaOrdenada[item.nome]) {
+            item.lista = listaOrdenada[item.nome];
+        }
+    });
+
+    return formatado;
+}
+
+interface NutrienteInfo {
+    nome: string;
+    quantidade: number;
+    quantidadeNutriente: number;
+}
+
+function gerarListasOrdenadasPorNutriente() {
+    const nutrientesGlobais: { [nutriente: string]: NutrienteInfo[] } = {};
+
+
+    for (const alimentos of Object.values(refeicoes)) {
+
+
+        alimentos.forEach((item: Alimento) => {
+
+            // Itera sobre vitaminas
+            for (const [vitamina, info] of Object.entries(item.vitaminas)) {
+                const quantidade = info.real * (item.quantidade / 100); // Ajusta a quantidade da vitamina
+                if (!nutrientesGlobais[vitamina]) {
+                    nutrientesGlobais[vitamina] = [];
+                }
+
+                // Verifica se o item já existe na lista e soma a quantidade
+                const existente = nutrientesGlobais[vitamina].find(entry => entry.nome === item.nome);
+                if (existente) {
+                    existente.quantidade += quantidade;
+                } else {
+                    nutrientesGlobais[vitamina].push({ nome: item.nome, quantidadeNutriente: item.quantidade, quantidade: quantidade });
+                }
+            }
+
+            // Itera sobre minerais
+            for (const [mineral, info] of Object.entries(item.minerais)) {
+                const quantidade = info.real * (item.quantidade / 100); // Ajusta a quantidade do mineral
+                if (!nutrientesGlobais[mineral]) {
+                    nutrientesGlobais[mineral] = [];
+                }
+
+                // Verifica se o item já existe na lista e soma a quantidade
+                const existente = nutrientesGlobais[mineral].find(entry => entry.nome === item.nome);
+                if (existente) {
+                    existente.quantidade += quantidade;
+                } else {
+                    nutrientesGlobais[mineral].push({  nome: item.nome, quantidadeNutriente: item.quantidade, quantidade: quantidade });
+                }
+            }
+        });
+
+        // Ordena os alimentos por cada nutriente
+        for (const nutriente in nutrientesGlobais) {
+            nutrientesGlobais[nutriente] = nutrientesGlobais[nutriente].filter(entry => entry.quantidade > 0); // Remove itens com quantidade zerada
+            nutrientesGlobais[nutriente].sort((a, b) => b.quantidade - a.quantidade);
+        }
+
+    }
+
+    return nutrientesGlobais;
 }

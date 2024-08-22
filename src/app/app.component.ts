@@ -5,22 +5,12 @@ import { MatListItem, MatNavList } from '@angular/material/list';
 import { MeallistComponent } from "./meallist/meallist.component";
 import { TotalmeallistComponent } from "./totalmeallist/totalmeallist.component";
 import { TotaldailylistComponent } from "./totaldailylist/totaldailylist.component";
+
 import * as Util from './util/util';
 import { refeicoes, Refeicoes } from './data/refeicoes';
 import { Alimento } from './data/alimento';
 import { DistribuicaoMacros, MacroPorKg, TotalKcal, TotalNutrientes } from './data/total';
 import { CommonModule } from '@angular/common';
-
-var items = [];
-var pesoAtual = 82;
-
-var totalMacroDia: TotalKcal;
-var totalkcalPorRefeicao: TotalKcal[];
-
-var distribuicaoMacros = new DistribuicaoMacros();
-var refeicoes1: Alimento[][];
-var macrosPorKg = new MacroPorKg();
-
 
 @Component({
   selector: 'app-root',
@@ -38,6 +28,7 @@ export class AppComponent {
   distribuicaoMacros = new DistribuicaoMacros();
   macrosPorKg = new MacroPorKg();
   totalNutrientes = new TotalNutrientes();
+  pesoAtual = 82;
   
   ngOnInit() {
     Util.calcularmacrosENutrientes(refeicoes)
@@ -46,7 +37,7 @@ export class AppComponent {
     
     this.distribuicaoMacros = Util.calcularDistribuicaoMacros(this.totalMacroDia);
     
-    this.macrosPorKg = Util.calcularMacrosPorKg(this.totalMacroDia, pesoAtual);
+    this.macrosPorKg = Util.calcularMacrosPorKg(this.totalMacroDia, this.pesoAtual);
     Util.calcularNutrientesTotais(refeicoes, this.totalNutrientes);
   
      

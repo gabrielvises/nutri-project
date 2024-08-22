@@ -3,11 +3,16 @@ import { Component, Input } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { DistribuicaoMacros, MacroPorKg as MacrosPorKg, recomendado, TotalKcal, TotalNutrientes } from '../data/total';
 import { MatTableModule } from '@angular/material/table';
+import * as Util from '../util/util';
+import { MatTooltip, MatTooltipModule } from '@angular/material/tooltip';
+import { MtxTooltipModule } from '@ng-matero/extensions/tooltip';
+
+
 
 @Component({
   selector: 'app-totaldailylist',
   standalone: true,
-  imports: [CommonModule, MatCardModule, MatTableModule],
+  imports: [CommonModule, MatCardModule, MatTableModule, MatTooltipModule, MatTooltip, MtxTooltipModule, MatTooltipModule ],
   templateUrl: './totaldailylist.component.html',
   styleUrl: './totaldailylist.component.css'
 })
@@ -24,10 +29,18 @@ export class TotaldailylistComponent {
   @Input()
   totalNutrientes!: TotalNutrientes;
   recomendado = recomendado;
+  vitaminas:any = []; 
+JSON: any;
 
-  getNutrientesEntries() {
-    return Object.entries(this.totalNutrientes);
+
+  
+
+  ngOnInit() {
+    this.vitaminas = Util.formatarTabelaNutrientes(this.totalNutrientes);
+
   }
 
-  displayedColumns: string[] = ['nome', 'valor'];
+  
+
+ 
 }
