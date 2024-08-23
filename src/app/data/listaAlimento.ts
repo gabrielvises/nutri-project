@@ -2,13 +2,14 @@ import { Alimento } from "./alimento";
 
 export const maca = new Alimento(
   "Maçã",
-  100,
+  999990,
   {
     calorias: { ref: 56, real: 0 },
     proteina: { ref: 0.3, real: 0 },
     carboidratos: { ref: 14.0, real: 0 },
     gordura: { ref: 0.2, real: 0 },
     fibras: { ref: 2.4, real: 0 },
+    acucar: {ref: 10.4, real: 0},
   },
   {
     A: { ref: 54, real: 0 },
@@ -34,18 +35,18 @@ export const maca = new Alimento(
     Sódio: { ref: 2, real: 0 },
     Zinco: { ref: 0.04, real: 0 }
   }
-
 );
 
 export const mamaoFormosa = new Alimento(
   'Mamão Formosa',
-  100,
+  999990,
   {
     calorias: { ref: 43, real: 0 },
     proteina: { ref: 0.5, real: 0 },
     carboidratos: { ref: 10.8, real: 0 },
     gordura: { ref: 0.3, real: 0 },
     fibras: { ref: 1.7, real: 0 },
+    acucar: {ref: 7.8, real: 0},
   },
   {
     A: { ref: 82, real: 0 },
@@ -75,13 +76,14 @@ export const mamaoFormosa = new Alimento(
 
 export const kiwi = new Alimento(
   "Kiwi",
-  50,
+  99999,
   {
     calorias: { ref: 61, real: 0 },
     proteina: { ref: 1.1, real: 0 },
     carboidratos: { ref: 14.7, real: 0 },
     gordura: { ref: 0.5, real: 0 },
     fibras: { ref: 3.0, real: 0 },
+    acucar: {ref: 8.9, real: 0},
   },
   {
     A: { ref: 0, real: 0 },
@@ -110,13 +112,14 @@ export const kiwi = new Alimento(
 );
 export const melao = new Alimento(
   "Melão",
-  100,
+  999990,
   {
     calorias: { ref: 34, real: 0 },
     proteina: { ref: 0.8, real: 0 },
     carboidratos: { ref: 8.6, real: 0 },
     gordura: { ref: 0.2, real: 0 },
     fibras: { ref: 0.8, real: 0 },
+    acucar: {ref: 7.9, real: 0},
   },
   {
     A: { ref: 338, real: 0 },
@@ -146,13 +149,14 @@ export const melao = new Alimento(
 
 export const pera = new Alimento(
   "Pera",
-  50,
+  99999,
   {
     calorias: { ref: 39, real: 0 },
     proteina: { ref: 0.4, real: 0 },
     carboidratos: { ref: 10.2, real: 0 },
     gordura: { ref: 0.1, real: 0 },
     fibras: { ref: 3.1, real: 0 },
+    acucar: {ref: 10.6, real: 0},
   },
   {
     A: { ref: 1, real: 0 },
@@ -182,13 +186,14 @@ export const pera = new Alimento(
 
 export const ovos = new Alimento(
   "Ovos",
-  100,
+  999990,
   {
     calorias: { ref: 143, real: 0 },
     proteina: { ref: 12.6, real: 0 },
     carboidratos: { ref: 0.7, real: 0 },
     gordura: { ref: 9.5, real: 0 },
     fibras: { ref: 0, real: 0 },
+    acucar: {ref: 0, real: 0},
   },
   {
     A: { ref: 540, real: 0 },
@@ -197,7 +202,7 @@ export const ovos = new Alimento(
     B3: { ref: 0.7, real: 0 },
     B5: { ref: 1.4, real: 0 },
     B6: { ref: 0.1, real: 0 },
-    B7: { ref: 10, real: 0 },
+    B7: { ref: 16.5, real: 0 },
     B9: { ref: 47, real: 0 },
     B12: { ref: 1.3, real: 0 },
     C: { ref: 0, real: 0 },
@@ -214,8 +219,7 @@ export const ovos = new Alimento(
     Sódio: { ref: 70, real: 0 },
     Zinco: { ref: 1.3, real: 0 }
   }
-)
-  ;
+);
 
 export const azeiteDeOlive = new Alimento(
   "Azeite de Oliva",
@@ -226,6 +230,7 @@ export const azeiteDeOlive = new Alimento(
     carboidratos: { ref: 0, real: 0 },
     gordura: { ref: 100, real: 0 },
     fibras: { ref: 0, real: 0 },
+    acucar: {ref: 0, real: 0},
   },
   {
     A: { ref: 0, real: 0 },
@@ -251,17 +256,17 @@ export const azeiteDeOlive = new Alimento(
     Sódio: { ref: 0, real: 0 },
     Zinco: { ref: 0, real: 0 }
   }
-)
-  ;
+);
 export const aveia = new Alimento(
   "Aveia",
-  30,
+  99999,
   {
     calorias: { ref: 367, real: 0 },
     proteina: { ref: 15.333, real: 0 },
     carboidratos: { ref: 53.333, real: 0 },
     gordura: { ref: 7.666, real: 0 },
     fibras: { ref: 10.6, real: 0 },
+    acucar: {ref: 0.6, real: 0},
   },
   {
     A: { ref: 0, real: 0 },
@@ -287,17 +292,17 @@ export const aveia = new Alimento(
     Sódio: { ref: 2, real: 0 },
     Zinco: { ref: 2.7, real: 0 }
   }
-)
-  ;
+);
 export const brócolis = new Alimento(
   "Brócolis",
-  30,
+  99999,
   {
     calorias: { ref: 30, real: 0 },
     proteina: { ref: 2.5, real: 0 },
     carboidratos: { ref: 5.9, real: 0 },
     gordura: { ref: 0, real: 0 },
     fibras: { ref: 3.4, real: 0 },
+    acucar: {ref: 1.7, real: 0},
   },
   {
     A: { ref: 700, real: 0 },
@@ -323,17 +328,17 @@ export const brócolis = new Alimento(
     Sódio: { ref: 33, real: 0 },
     Zinco: { ref: 0.4, real: 0 }
   }
-)
-  ;
+);
 export const pao = new Alimento(
   "Pão Castanha-do-Pará & Quinoa",
-  30,
+  99999,
   {
     calorias: { ref: 254, real: 0 },
     proteina: { ref: 11.6, real: 0 },
     carboidratos: { ref: 40, real: 0 },
     gordura: { ref: 5.6, real: 0 },
     fibras: { ref: 6.8, real: 0 },
+    acucar: {ref: 2.7, real: 0},
   },
   {
     A: { ref: 0, real: 0 },
@@ -366,13 +371,14 @@ export const pao = new Alimento(
 
 export const peitoDeFrango = new Alimento(
   "Peito de frango",
-  100,
+  999990,
   {
     calorias: { ref: 104, real: 0 },
     proteina: { ref: 23, real: 0 },
     carboidratos: { ref: 0, real: 0 },
     gordura: { ref: 1, real: 0 },
     fibras: { ref: 0, real: 0 },
+    acucar: {ref: 0, real: 0},
   },
   {
     A: { ref: 0, real: 0 },
@@ -402,13 +408,14 @@ export const peitoDeFrango = new Alimento(
 
 export const carnePatinho = new Alimento(
   "Carne de Patinho",
-  100,
+  999990,
   {
     calorias: { ref: 133, real: 0 },
     proteina: { ref: 22, real: 0 },
     carboidratos: { ref: 0, real: 0 },
     gordura: { ref: 4.5, real: 0 },
     fibras: { ref: 0, real: 0 },
+    acucar: {ref: 0, real: 0},
   },
   {
     A: { ref: 11, real: 0 },
@@ -439,13 +446,14 @@ export const carnePatinho = new Alimento(
 
 export const batataDoce = new Alimento(
   "Batata Doce cozida",
-  80,
+  99999,
   {
     calorias: { ref: 86, real: 0 },
     proteina: { ref: 1.6, real: 0 },
     carboidratos: { ref: 20, real: 0 },
     gordura: { ref: 0.1, real: 0 },
     fibras: { ref: 2.2, real: 0 },
+    acucar: {ref: 5.5, real: 0},
   },
   {
     A: { ref: 709, real: 0 },
@@ -454,7 +462,7 @@ export const batataDoce = new Alimento(
     B3: { ref: 1.47, real: 0 },
     B5: { ref: 0.80, real: 0 },
     B6: { ref: 0.21, real: 0 },
-    B7: { ref: 0, real: 0 },
+    B7: { ref: 2.4, real: 0 },
     B9: { ref: 22, real: 0 },
     B12: { ref: 0, real: 0 },
     C: { ref: 2.4, real: 0 },
@@ -471,18 +479,18 @@ export const batataDoce = new Alimento(
     Sódio: { ref: 55, real: 0 },
     Zinco: { ref: 0.3, real: 0 }
   }
-)
-  ;
+);
 
 export const arrozIntegral = new Alimento(
   "Arroz Integral",
-  60,
+  99999,
   {
     calorias: { ref: 126, real: 0 },
     proteina: { ref: 2.6, real: 0 },
     carboidratos: { ref: 26.5, real: 0 },
     gordura: { ref: 1.0, real: 0 },
     fibras: { ref: 2.7, real: 0 },
+    acucar: {ref: 0.3, real: 0},
   },
   {
     A: { ref: 0, real: 0 },
@@ -508,18 +516,18 @@ export const arrozIntegral = new Alimento(
     Sódio: { ref: 1, real: 0 },
     Zinco: { ref: 0.68, real: 0 }
   }
-)
-  ;
+);
 
 export const feijaoPreto = new Alimento(
   "Feijão Preto",
-  120,
+  999990,
   {
     calorias: { ref: 143, real: 0 },
     proteina: { ref: 11.8, real: 0 },
     carboidratos: { ref: 25.3, real: 0 },
     gordura: { ref: 0.5, real: 0 },
     fibras: { ref: 8.4, real: 0 },
+    acucar: {ref: 0.3, real: 0},
   },
   {
     A: { ref: 0, real: 0 },
@@ -545,18 +553,18 @@ export const feijaoPreto = new Alimento(
     Sódio: { ref: 2, real: 0 },
     Zinco: { ref: 1.0, real: 0 }
   }
-)
-  ;
+);
 
 export const leite = new Alimento(
   "Leite Desnatado",
-  300,
+  999990,
   {
     calorias: { ref: 32, real: 0 },
     proteina: { ref: 3.1, real: 0 },
     carboidratos: { ref: 4.7, real: 0 },
     gordura: { ref: 0, real: 0 },
     fibras: { ref: 0, real: 0 },
+    acucar: {ref: 5.0, real: 0},
   },
   {
     A: { ref: 50, real: 0 },
@@ -582,18 +590,18 @@ export const leite = new Alimento(
     Sódio: { ref: 50, real: 0 },
     Zinco: { ref: 0.4, real: 0 }
   }
-)
-  ;
+);
 
 export const whey = new Alimento(
   "Whey",
-  50,
+  99999,
   {
     calorias: { ref: 407, real: 0 },
     proteina: { ref: 76.6, real: 0 },
     carboidratos: { ref: 13.3, real: 0 },
     gordura: { ref: 5.3, real: 0 },
     fibras: { ref: 0, real: 0 },
+    acucar: {ref: 0, real: 0},
   },
   {
     A: { ref: 0, real: 0 },
@@ -619,18 +627,18 @@ export const whey = new Alimento(
     Sódio: { ref: 150, real: 0 },
     Zinco: { ref: 1.0, real: 0 }
   }
-)
-  ;
+);
 
 export const banana = new Alimento(
   "Banana",
-  100,
+  999990,
   {
     calorias: { ref: 92, real: 0 },
     proteina: { ref: 1.4, real: 0 },
     carboidratos: { ref: 23.9, real: 0 },
     gordura: { ref: 0, real: 0 },
     fibras: { ref: 1.9, real: 0 },
+    acucar: {ref: 12.2, real: 0},
   },
   {
     A: { ref: 64, real: 0 },
@@ -656,17 +664,17 @@ export const banana = new Alimento(
     Sódio: { ref: 1, real: 0 },
     Zinco: { ref: 0.15, real: 0 }
   }
-)
-  ;
+);
 export const morango = new Alimento(
   "Morango",
-  100,
+  999990,
   {
     calorias: { ref: 32, real: 0 },
     proteina: { ref: 0.7, real: 0 },
     carboidratos: { ref: 7.7, real: 0 },
     gordura: { ref: 0.3, real: 0 },
     fibras: { ref: 1.7, real: 0 },
+    acucar: {ref: 4.9, real: 0},
   },
   {
     A: { ref: 2, real: 0 },
@@ -678,7 +686,7 @@ export const morango = new Alimento(
     B7: { ref: 0.0, real: 0 },
     B9: { ref: 17.00, real: 0 },
     B12: { ref: 0.00, real: 0 },
-    C: { ref: 58.8, real: 0 },
+    C: { ref: 50, real: 0 },
     D: { ref: 0.0, real: 0 },
     E: { ref: 0.30, real: 0 },
     K: { ref: 2.2, real: 0 }
@@ -692,17 +700,17 @@ export const morango = new Alimento(
     Sódio: { ref: 1, real: 0 },
     Zinco: { ref: 0.12, real: 0 }
   }
-)
-  ;
+);
 export const psyllium = new Alimento(
   "Psyllium",
-  5,
+  9999,
   {
     calorias: { ref: 35, real: 0 },
     proteina: { ref: 1.5, real: 0 },
     carboidratos: { ref: 78, real: 0 },
     gordura: { ref: 0.6, real: 0 },
     fibras: { ref: 80.0, real: 0 },
+    acucar: {ref: 0, real: 0},
   },
   {
     A: { ref: 146, real: 0 },
@@ -728,18 +736,55 @@ export const psyllium = new Alimento(
     Sódio: { ref: 7, real: 0 },
     Zinco: { ref: 0.64, real: 0 }
   }
-)
-  ;
+);
+
+export const levedoDeCerveja = new Alimento(
+  "Levedo de cerveja",
+  9999,
+  {
+    calorias: { ref: 350, real: 0 },
+    proteina: { ref: 35, real: 0 },
+    carboidratos: { ref: 20, real: 0 },
+    gordura: { ref: 2, real: 0 },
+    fibras: { ref: 20, real: 0 },
+    acucar: {ref: 0, real: 0},
+  },
+  {
+    A: { ref: 0, real: 0 },
+    B1: { ref: 2.00, real: 0 },
+    B2: { ref: 4.00, real: 0 },
+    B3: { ref: 25.00, real: 0 },
+    B5: { ref: 1.50, real: 0 },
+    B6: { ref: 1.50, real: 0 },
+    B7: { ref: 200.00, real: 0 },
+    B9: { ref: 500.00, real: 0 },
+    B12: { ref: 0, real: 0 },
+    C: { ref: 0, real: 0 },
+    D: { ref: 0, real: 0 },
+    E: { ref: 0.00, real: 0 },
+    K: { ref: 0, real: 0 }
+  },
+  {
+    Cálcio: { ref: 50.00, real: 0 },
+    Ferro: { ref: 8.00, real: 0 },
+    Magnésio: { ref: 200.00, real: 0 },
+    Fósforo: { ref: 500.00, real: 0 },
+    Potássio: { ref: 1200.00, real: 0 },
+    Sódio: { ref: 10.00, real: 0 },
+    Zinco: { ref: 4.00, real: 0 }
+  }
+);
 
 export const abacate = new Alimento(
   "Abacate",
-  100,
+  999990,
   {
     calorias: { ref: 161, real: 0 },
     proteina: { ref: 2, real: 0 },
     carboidratos: { ref: 9, real: 0 },
     gordura: { ref: 15.3, real: 0 },
     fibras: { ref: 6.3, real: 0 },
+    acucar: {ref: 0.2, real: 0},
   },
   {
     A: { ref: 146, real: 0 },
@@ -765,8 +810,7 @@ export const abacate = new Alimento(
     Sódio: { ref: 7, real: 0 },
     Zinco: { ref: 0.64, real: 0 }
   }
-)
-  ;
+);
 
 export const amendoas = new Alimento(
   "Amêndoas",
@@ -777,6 +821,7 @@ export const amendoas = new Alimento(
     carboidratos: { ref: 16, real: 0 },
     gordura: { ref: 49.3, real: 0 },
     fibras: { ref: 11.6, real: 0 },
+    acucar: {ref: 4.2, real: 0},
   },
   {
     A: { ref: 0, real: 0 },
@@ -785,7 +830,7 @@ export const amendoas = new Alimento(
     B3: { ref: 0.40, real: 0 },
     B5: { ref: 0.47, real: 0 },
     B6: { ref: 0.10, real: 0 },
-    B7: { ref: 0.0, real: 0 },
+    B7: { ref: 6.3, real: 0 },
     B9: { ref: 60.00, real: 0 },
     B12: { ref: 0.00, real: 0 },
     C: { ref: 0.0, real: 0 },
@@ -802,8 +847,45 @@ export const amendoas = new Alimento(
     Sódio: { ref: 1, real: 0 },
     Zinco: { ref: 3.1, real: 0 }
   }
-)
-  ;
+);
+
+export const drpeanut = new Alimento(
+  "Dr Peanut",
+  99999,
+  {
+    calorias: { ref: 532, real: 0},
+    proteina: { ref: 17, real: 0},
+    carboidratos: { ref: 41, real: 0},
+    gordura: { ref: 41, real: 0},
+    fibras: { ref: 4.9, real: 0},
+    acucar: {ref: 0, real: 0},
+  },
+  {
+    A: { ref: 0, real: 0},
+    B1: { ref: 0.21, real: 0},
+    B2: { ref: 1.14, real: 0},
+    B3: { ref: 0.40, real: 0},
+    B5: { ref: 0.47, real: 0},
+    B6: { ref: 0.10, real: 0},
+    B7: { ref: 0.0, real: 0},
+    B9: { ref: 60.00, real: 0},
+    B12: { ref: 0.00, real: 0},
+    C: { ref: 0.0, real: 0},
+    D: { ref: 0.0, real: 0},
+    E: { ref: 25.63, real: 0},
+    K: { ref: 0.0, real: 0}
+  },
+  {
+    Cálcio: { ref: 269, real: 0},
+    Ferro: { ref: 3.71, real: 0},
+    Magnésio: { ref: 268, real: 0},
+    Fósforo: { ref: 490, real: 0},
+    Potássio: { ref: 705, real: 0},
+    Sódio: { ref: 59, real: 0},
+    Zinco: { ref: 3.1, real: 0}
+  }
+);
+
 export const polpaDeTomate = new Alimento(
   "Molho de Tomate Hemmer",
   300, // quantidade em gramas
@@ -813,6 +895,7 @@ export const polpaDeTomate = new Alimento(
     carboidratos: { ref: 14.6, real: 0 },
     gordura: { ref: 0, real: 0 },
     fibras: { ref: 1.2, real: 0 },
+    acucar: {ref: 3.3, real: 0},
   },
   {
     A: { ref: 22, real: 0 },
@@ -842,13 +925,14 @@ export const polpaDeTomate = new Alimento(
 
 export const queijoRicotta = new Alimento(
   "Queijo Ricotta Fresco",
-  230,
+  999990,
   {
     calorias: { ref: 167, real: 0 },
     proteina: { ref: 15, real: 0 },
     carboidratos: { ref: 0, real: 0 },
     gordura: { ref: 12.0, real: 0 },
     fibras: { ref: 0, real: 0 },
+    acucar: {ref: 0.3, real: 0},
   },
   {
     A: { ref: 370, real: 0 },
@@ -874,18 +958,18 @@ export const queijoRicotta = new Alimento(
     Sódio: { ref: 350, real: 0 },
     Zinco: { ref: 1.2, real: 0 }
   }
-)
-  ;
+);
 
 export const leiteEmPó = new Alimento(
   "Leite em pó desnatado",
-  20,
+  99999,
   {
     calorias: { ref: 370, real: 0 },
     proteina: { ref: 37.5, real: 0 },
     carboidratos: { ref: 55, real: 0 },
     gordura: { ref: 0, real: 0 },
     fibras: { ref: 0, real: 0 },
+    acucar: {ref: 51.5, real: 0},
   },
   {
     A: { ref: 400, real: 0 },
@@ -911,20 +995,20 @@ export const leiteEmPó = new Alimento(
     Sódio: { ref: 180, real: 0 },
     Zinco: { ref: 1.0, real: 0 }
   }
-)
-  ;
+);
 
 
 
 export const ketchup = new Alimento(
   "Ketchup",
-  40,
+  99999,
   {
     calorias: { ref: 90, real: 0 },
     proteina: { ref: 1.4, real: 0 },
     carboidratos: { ref: 20.0, real: 0 },
     gordura: { ref: 0, real: 0 },
     fibras: { ref: 1.0, real: 0 },
+    acucar: {ref: 22.8, real: 0},
   },
   {
     A: { ref: 10, real: 0 },
@@ -950,18 +1034,18 @@ export const ketchup = new Alimento(
     Sódio: { ref: 900, real: 0 },
     Zinco: { ref: 0.20, real: 0 }
   }
-)
-  ;
+);
 
 export const mostarda = new Alimento(
   "Mostarda",
-  20,
+  99999,
   {
     calorias: { ref: 70, real: 0 },
     proteina: { ref: 2.8, real: 0 },
     carboidratos: { ref: 6.8, real: 0 },
     gordura: { ref: 2.9, real: 0 },
     fibras: { ref: 2.0, real: 0 },
+    acucar: {ref: 0.9, real: 0},
   },
   {
     A: { ref: 16, real: 0 },
@@ -987,18 +1071,18 @@ export const mostarda = new Alimento(
     Sódio: { ref: 329, real: 0 },
     Zinco: { ref: 0.40, real: 0 }
   }
-)
-  ;
+);
 
 export const agua = new Alimento(
   "Agua",
-  200,
+  999990,
   {
     calorias: { ref: 0, real: 0 },
     proteina: { ref: 0, real: 0 },
     carboidratos: { ref: 0, real: 0 },
     gordura: { ref: 0, real: 0 },
     fibras: { ref: 0, real: 0 },
+    acucar: {ref: 0, real: 0},
   },
   {
     A: { ref: 0, real: 0 },
@@ -1024,5 +1108,4 @@ export const agua = new Alimento(
     Sódio: { ref: 0, real: 0 },
     Zinco: { ref: 0.00, real: 0 }
   }
-)
-  ;
+);

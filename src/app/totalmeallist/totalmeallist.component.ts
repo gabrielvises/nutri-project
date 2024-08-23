@@ -1,8 +1,9 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ElementRef, ViewChild, Output, EventEmitter  } from '@angular/core';
 import { TotalKcal } from '../data/total';
 import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
 import { Macros } from '../data/alimento';
+import { ScrollService } from '../scroll.service';
 
 @Component({
   selector: 'app-totalmeallist',
@@ -12,6 +13,10 @@ import { Macros } from '../data/alimento';
   styleUrl: './totalmeallist.component.css'
 })
 export class TotalmeallistComponent {
+  constructor(private scrollService: ScrollService) {}
+
+
+  @Output() itemClicked = new EventEmitter<number>();
   @Input()
   totalMacroDia!: TotalKcal;
 
@@ -34,4 +39,7 @@ export class TotalmeallistComponent {
   }
 
 
+  onCardClick(index: number): void {
+    this.scrollService.scrollToItem(index);
+  }
 }

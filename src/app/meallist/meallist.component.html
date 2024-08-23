@@ -1,23 +1,26 @@
-<div *ngFor="let refeicao of refeicoes; let i = index">
-    <h5>{{ refeicaoNome[i] }}</h5>
-    <div *ngFor="let alimento of refeicao">
-        <div>
-                <mat-card class="meal-card">
-                <mat-card-header>
-                    <mat-card-title>
-
-                        <strong>{{ alimento.nome }}</strong> - {{ alimento.quantidade }}g
-                    </mat-card-title>
-            </mat-card-header>
-            <mat-card-content>
-            <div class="macros">
+<div class="scroll-container" #scrollContainer>
+    <div *ngFor="let refeicao of refeicoes; let i = index">
+      <h5 class="less-bold scroll-item">{{ refeicaoNome[i] }}</h5>
+      <div *ngFor="let alimento of refeicao" class="">
+        <mat-card class="meal-card">
+          <mat-card-header>
+            <mat-card-title>
+              <span class="less-bold">{{ alimento.nome }}</span> - {{ alimento.quantidade }}g
+            </mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <div [ngClass]="{ 'macros': true, 'macros-hidden': ocultarDetalhes }">
               <div>Calorias: {{ alimento.macros.calorias.real.toFixed(2) }} kcal</div>
               <div>Proteína: {{ alimento.macros.proteina.real.toFixed(2) }}g</div>
               <div>Carboidratos: {{ alimento.macros.carboidratos.real.toFixed(2) }}g</div>
               <div>Gordura: {{ alimento.macros.gordura.real.toFixed(2) }}g</div>
+              <div>Fibras: {{ alimento.macros.fibras.real.toFixed(2) }}g</div>
+              <div>Açúcar: {{ alimento.macros.acucar.real.toFixed(2) }}g</div>
             </div>
-        </mat-card-content>
-    </mat-card>
-          </div>
-        </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+    <div style="height: 550px;"></div>
   </div>
+  

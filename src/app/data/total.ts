@@ -4,13 +4,15 @@ export class TotalKcal {
     carboidratos: number;
     gordura: number;
     fibras: number;
+    acucar: number;
 
     constructor() {
         this.calorias = 0;
         this.proteina = 0;
         this.carboidratos = 0;
         this.gordura = 0;
-        this.fibras = 0; 
+        this.fibras = 0;
+        this.acucar = 0;
     }
 
 
@@ -77,16 +79,18 @@ export class MacroPorKg {
     }
 }
 export class DistribuicaoMacros {
-    proteinaPercentual :number;
-    carboidratosPercentual :number;
-    gorduraPercentual :number;
-    fibrasPercentual :number;
+    proteinaPercentual: number;
+    carboidratosPercentual: number;
+    gorduraPercentual: number;
+    fibrasPercentual: number;
+    acucarPercentual: number;
 
     constructor() {
         this.proteinaPercentual = 0;
         this.carboidratosPercentual = 0;
         this.gorduraPercentual = 0;
         this.fibrasPercentual = 0;
+        this.acucarPercentual = 0;
     }
 }
 
@@ -111,5 +115,6 @@ export const recomendado: TotalNutrientes = {
     Potassio: 3500, //mg
     Sodio: 2300, //mg
     Zinco: 11, //mg
+    // iodo: 150, //µg
 
 }

@@ -1,28 +1,29 @@
-<div style="margin: 2px 0px 8px 0px">
+<div style="margin: 0px 0px 0px 0px">
   <!-- *ngFor="let totalMacroRefeicao of totalMacroRefeicao; let i = index"     -->
-  <h6 style="margin-bottom: 10px;">Total do Dia:</h6>
+  <h6 style="margin-bottom: 0;">Total do Dia:</h6>
 
   <mat-card class="meal-card">
 
-    <mat-card-content>
+    <mat-card-content style="padding-bottom: 8px; padding-top: 8px">
       <div class="macros">
         <div>Calorias: {{totalMacroDia.calorias.toFixed(2)}} kcal</div>
         <div>Proteína: {{totalMacroDia.proteina.toFixed(2)}}g</div>
         <div>Carboidratos: {{totalMacroDia.carboidratos.toFixed(2)}}g</div>
         <div>Gordura: {{totalMacroDia.gordura.toFixed(2)}}g</div>
         <div>Fibras: {{totalMacroDia.fibras.toFixed(2)}}g</div>
+        <div>Açúcar: {{totalMacroDia.acucar.toFixed(2)}}g</div>
       </div>
-    </mat-card-content>
+    </mat-card-content> 
   </mat-card>
 </div>
 
-<div style="margin: 2px 0px 8px 0px">
+<div style="margin: 0px 0px 0px 0px">
   <!-- *ngFor="let totalMacroRefeicao of totalMacroRefeicao; let i = index"     -->
-  <h6 style="margin-bottom: 10px;">Distribuição de Macros:</h6>
+  <h6 style="margin-bottom: 5px;">Distribuição de Macros:</h6>
 
   <mat-card class="meal-card">
 
-    <mat-card-content>
+    <mat-card-content style="padding-bottom: 10px; padding-top:10px">
       <div>
         <div>Proteína: {{distribuicaoMacros.proteinaPercentual.toFixed(2)}}%</div>
         <div>Carboidratos: {{distribuicaoMacros.carboidratosPercentual.toFixed(2)}}%</div>
@@ -32,13 +33,13 @@
   </mat-card>
 </div>
 
-<div style="margin: 2px 0px 8px 0px">
+<div style="margin: 0px 0px 0px 0px">
   <!-- *ngFor="let totalMacroRefeicao of totalMacroRefeicao; let i = index"     -->
-  <h6 style="margin-bottom: 10px;">Macros por Kg Corporal:</h6>
+  <h6 style="margin-bottom: 0px;">Macros por Kg Corporal:</h6>
 
   <mat-card class="meal-card">
 
-    <mat-card-content>
+    <mat-card-content style="padding-bottom: 10px; padding-top:10px">
       <div>
         <div>Proteína: {{macrosPorKg.proteinaPorKg.toFixed(2)}}g/kg</div>
         <div>Carboidratos: {{macrosPorKg.carboidratosPorKg.toFixed(2)}}g/kg</div>
@@ -76,7 +77,7 @@
 
         <div class="tooltip-content-wrapper">
           <div *ngFor="let lista of vitamina.lista; let i = index;" class="tooltip-content">
-            <div class="tooltip-left">{{i+1}}- {{lista.nome}} {{lista.quantidadeNutriente}}g </div>
+            <div class="tooltip-left">{{i+1}}- {{lista.nome}} {{lista.quantidadeDeAlimento}}g </div>
             <div class="tooltip-right">{{ lista.quantidade.toFixed(2) }} {{vitamina.unidade}}</div>
 
           </div>

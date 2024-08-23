@@ -1,28 +1,14 @@
-
-<mat-toolbar color="#primary" class="toolbar">
+<mat-toolbar color="primary" class="toolbar">
   Plano Diário de Refeições
+  <div class="custom-toggle-switch" (click)="onToggleChange()">
+    <div class="switch-slider" [class.active]="ocultarDetalhes"></div>
+    <div class="switch-label"></div>
+  </div>
 </mat-toolbar>
-<!-- 
-<div class="container body">
-  <div class="left-panel-main">
-    
-  </div>
-  <div class="right-panel-main"> 
-    <div class="container">
-      <div class="left-panel">
-        <app-totalmeallist></app-totalmeallist>
-      </div>
-      <div class="right-panel"> 
-        <app-totaldailylist></app-totaldailylist>
-      </div>
-    </div>
-  </div>
-</div>  -->
-
 
 <div class="main-content">
   <h2 style="margin-right: 10px;">Plano Diário de Refeições</h2>
-  <app-meallist [refeicoes]="refeicoes1"></app-meallist>
+  <app-meallist [refeicoes]="refeicoesFormat" [ocultarDetalhes]="ocultarDetalhes"></app-meallist>
 </div>
 
 <div class="fixed-panel">
@@ -30,7 +16,7 @@
     <app-totalmeallist [totalMacroDia]="totalMacroDia" [totalMacroRefeicao]="totalkcalPorRefeicao"></app-totalmeallist>
   </div>
   <div class="container-right">
-    <app-totaldailylist [totalMacroDia]="totalMacroDia" [distribuicaoMacros]="distribuicaoMacros" [totalNutrientes]="totalNutrientes"
+    <app-totaldailylist [totalMacroDia]="totalMacroDia" [distribuicaoMacros]="distribuicaoMacros" [totalNutrientes]="totalNutrientes" [refeicoes]="refeicoes"
       [macrosPorKg]="macrosPorKg"></app-totaldailylist>
   </div>
 </div>

@@ -1,9 +1,9 @@
-<div style="margin: 2px 0px 8px 0px" *ngFor="let totalMacroRefeicao of totalMacroRefeicao; let i = index">    
-    <h6 style="margin-bottom: 10px;" >{{ categoria[i] }}</h6>
+<div style="margin: 0px 0px 0px 0px" *ngFor="let totalMacroRefeicao of totalMacroRefeicao; let i = index">    
+    <h6 style="margin-bottom: 0;" >{{ categoria[i] }}</h6>
         <div>
-            <mat-card class="meal-card">
+            <mat-card class="meal-card"  (click)="onCardClick(i)">
 
-                <mat-card-content>
+                <mat-card-content  style="padding-bottom: 8px; padding-top:8px">
                     <div class="macros">
                         <div>Calorias: {{totalMacroRefeicao.calorias.toFixed(2)}} kcal ({{((totalMacroRefeicao.calorias /
                             totalMacroDia.calorias) * 100).toFixed(2)}}% do dia)</div>
@@ -14,6 +14,8 @@
                         <div>Gordura: {{totalMacroRefeicao.gordura.toFixed(2)}}g ({{((totalMacroRefeicao.gordura /
                             totalMacroDia.gordura) * 100).toFixed(2)}}% do dia)</div>
                         <div>Fibras: {{totalMacroRefeicao.fibras.toFixed(2)}}g ({{((totalMacroRefeicao.fibras / totalMacroDia.fibras) *
+                            100).toFixed(2)}}% do dia)</div>
+                        <div>Açúcar: {{totalMacroRefeicao.acucar.toFixed(2)}}g ({{((totalMacroRefeicao.acucar / totalMacroDia.acucar) *
                             100).toFixed(2)}}% do dia)</div>
                     </div>
                 </mat-card-content>

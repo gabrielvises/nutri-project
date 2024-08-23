@@ -1,16 +1,13 @@
-import { Alimento, Macros, Minerais, Vitaminas } from "../data/alimento";
-import { refeicoes, Refeicoes } from "../data/refeicoes";
+import { Alimento } from "../data/alimento";
+import {  Refeicoes } from "../data/refeicoes";
 import { DistribuicaoMacros, MacroPorKg, recomendado, TotalKcal, TotalNutrientes } from "../data/total";
 
 
 
 export function setQuantidade(alimento: Alimento, quantidade: number): Alimento {
 
-    var retorno: Alimento = {
-        ...alimento,
-        quantidade: quantidade
-    };
-    var retorno1 = calcularMacrosAlimento(retorno, quantidade);
+    const copia = JSON.parse(JSON.stringify(alimento));
+    var retorno1 = calcularMacrosAlimento(copia, quantidade);
     return retorno1;
 }
 
@@ -23,6 +20,7 @@ export function calcularMacrosReceita(nomeReceita: string, ingredientes: Aliment
         carboidratos: 0,
         gordura: 0,
         fibras: 0,
+        acucar: 0,
         pesoTotal: 0,
         A: 0,
         B1: 0,
@@ -55,6 +53,7 @@ export function calcularMacrosReceita(nomeReceita: string, ingredientes: Aliment
         totais.carboidratos += (ingrediente.macros.carboidratos.ref / 100) * peso;
         totais.gordura += (ingrediente.macros.gordura.ref / 100) * peso;
         totais.fibras += (ingrediente.macros.fibras.ref / 100) * peso;
+        totais.acucar += (ingrediente.macros.acucar.ref / 100) * peso;
 
         totais.A += (ingrediente.vitaminas.A.ref / 100) * peso;
         totais.B1 += (ingrediente.vitaminas.B1.ref / 100) * peso;
@@ -90,6 +89,7 @@ export function calcularMacrosReceita(nomeReceita: string, ingredientes: Aliment
             carboidratos: { ref: (totais.carboidratos / totais.pesoTotal) * 100, real: 0 },
             gordura: { ref: (totais.gordura / totais.pesoTotal) * 100, real: 0 },
             fibras: { ref: (totais.fibras / totais.pesoTotal) * 100, real: 0 },
+            acucar: { ref: (totais.acucar / totais.pesoTotal) * 100, real: 0 },
         },
         {
             A: { ref: (totais.A / totais.pesoTotal) * 100, real: 0 },
@@ -130,6 +130,7 @@ export function calcularMacrosAlimento(alimento: Alimento, quantidade: number): 
     alimento.macros.carboidratos.real = (alimento.macros.carboidratos.ref * quantidade) / 100;
     alimento.macros.gordura.real = (alimento.macros.gordura.ref * quantidade) / 100;
     alimento.macros.fibras.real = (alimento.macros.fibras.ref * quantidade) / 100;
+    alimento.macros.acucar.real = (alimento.macros.acucar.ref * quantidade) / 100;
     alimento.vitaminas.A.real = (alimento.vitaminas.A.ref * quantidade) / 100;
     alimento.vitaminas.B1.real = (alimento.vitaminas.B1.ref * quantidade) / 100;
     alimento.vitaminas.B2.real = (alimento.vitaminas.B2.ref * quantidade) / 100;
@@ -164,11 +165,7 @@ export function calcularmacrosENutrientes(refeicoes: Refeicoes) {
             itemAlimento.macros.carboidratos.real = (itemAlimento.macros.carboidratos.ref * itemAlimento.quantidade) / 100;
             itemAlimento.macros.gordura.real = (itemAlimento.macros.gordura.ref * itemAlimento.quantidade) / 100;
             itemAlimento.macros.fibras.real = (itemAlimento.macros.fibras.ref * itemAlimento.quantidade) / 100;
-            itemAlimento.macros.calorias.real = (itemAlimento.macros.calorias.ref * itemAlimento.quantidade) / 100;
-            itemAlimento.macros.proteina.real = (itemAlimento.macros.proteina.ref * itemAlimento.quantidade) / 100;
-            itemAlimento.macros.carboidratos.real = (itemAlimento.macros.carboidratos.ref * itemAlimento.quantidade) / 100;
-            itemAlimento.macros.gordura.real = (itemAlimento.macros.gordura.ref * itemAlimento.quantidade) / 100;
-            itemAlimento.macros.fibras.real = (itemAlimento.macros.fibras.ref * itemAlimento.quantidade) / 100;
+            itemAlimento.macros.acucar.real = (itemAlimento.macros.acucar.ref * itemAlimento.quantidade) / 100;
             itemAlimento.vitaminas.A.real = (itemAlimento.vitaminas.A.ref * itemAlimento.quantidade) / 100;
             itemAlimento.vitaminas.B1.real = (itemAlimento.vitaminas.B1.ref * itemAlimento.quantidade) / 100;
             itemAlimento.vitaminas.B2.real = (itemAlimento.vitaminas.B2.ref * itemAlimento.quantidade) / 100;
@@ -211,34 +208,6 @@ export function calcularmacrosENutrientes(refeicoes: Refeicoes) {
 //   }
 
 
-export function rankearPorNutriente(
-    refeicoes: Refeicoes,
-    nomeNutriente: keyof Macros | keyof Vitaminas | keyof Minerais
-): Alimento[] {
-    // Combine todos os alimentos em um único array
-    const todosAlimentos: Alimento[] = Object.values(refeicoes).flat();
-
-    // Ordenar alimentos pela quantidade de nutriente (ordem decrescente)
-    return todosAlimentos.sort((a, b) => {
-        let valorA: number = 0;
-        let valorB: number = 0;
-
-        // Verifica se o nutriente está em macros, vitaminas ou minerais
-        if (nomeNutriente in a.macros) {
-            valorA = a.macros[nomeNutriente as keyof Macros].ref;
-            valorB = b.macros[nomeNutriente as keyof Macros].ref;
-        } else if (nomeNutriente in a.vitaminas) {
-            valorA = a.vitaminas[nomeNutriente as keyof Vitaminas].ref;
-            valorB = b.vitaminas[nomeNutriente as keyof Vitaminas].ref;
-        } else if (nomeNutriente in a.minerais) {
-            valorA = a.minerais[nomeNutriente as keyof Minerais].ref;
-            valorB = b.minerais[nomeNutriente as keyof Minerais].ref;
-        }
-
-        // Ordena em ordem decrescente
-        return valorB - valorA;
-    });
-}
 
 // Função para calcular os totais diários
 export function calcularMacroTotalDia(totalKcal: TotalKcal[]): TotalKcal {
@@ -252,6 +221,7 @@ export function calcularMacroTotalDia(totalKcal: TotalKcal[]): TotalKcal {
         aux.carboidratos += macro.carboidratos;
         aux.gordura += macro.gordura;
         aux.fibras += macro.fibras;
+        aux.acucar += macro.acucar;
     });
 
 
@@ -269,7 +239,8 @@ export function calcularTotalMacroPorRefeicao(refeicoes: Refeicoes): TotalKcal[]
             proteina: 0,
             carboidratos: 0,
             gordura: 0,
-            fibras: 0
+            fibras: 0,
+            acucar: 0,
         };
         refeicao.forEach((itemAlimento) => {
             aux[index].calorias += itemAlimento.macros.calorias.real;
@@ -277,6 +248,7 @@ export function calcularTotalMacroPorRefeicao(refeicoes: Refeicoes): TotalKcal[]
             aux[index].carboidratos += itemAlimento.macros.carboidratos.real;
             aux[index].gordura += itemAlimento.macros.gordura.real;
             aux[index].fibras += itemAlimento.macros.fibras.real;
+            aux[index].acucar += itemAlimento.macros.acucar.real;
         });
     });
 
@@ -291,6 +263,7 @@ export function calcularDistribuicaoMacros(totais: TotalKcal): DistribuicaoMacro
         carboidratosPercentual: (totais.carboidratos * 4 / totalMacros) * 100,
         gorduraPercentual: (totais.gordura * 9 / totalMacros) * 100,
         fibrasPercentual: totais.fibras,
+        acucarPercentual: totais.acucar,
     };
 }
 
@@ -341,7 +314,7 @@ export function calcularNutrientesTotais(refeicoes: Refeicoes, totalNutrientes: 
 }
 
 
-export function formatarTabelaNutrientes(totalNutrientes: TotalNutrientes) {
+export function formatarTabelaNutrientes(totalNutrientes: TotalNutrientes, refeicoes: Refeicoes) {
 
     var formatado = [
         { nome: 'A', total: totalNutrientes.A, recomendado: recomendado.A, unidade: 'µg', lista: [] },
@@ -366,7 +339,7 @@ export function formatarTabelaNutrientes(totalNutrientes: TotalNutrientes) {
         { nome: 'Zinco', total: totalNutrientes.Zinco, recomendado: recomendado.Zinco, unidade: 'mg', lista: [] }
     ];
 
-    const listaOrdenada = gerarListasOrdenadasPorNutriente();
+    const listaOrdenada = gerarListasOrdenadasPorNutriente(refeicoes);
 
     // Atribui as listas ordenadas à variável formatado
     formatado.forEach((item: any) => {
@@ -376,15 +349,15 @@ export function formatarTabelaNutrientes(totalNutrientes: TotalNutrientes) {
     });
 
     return formatado;
-}
+} 
 
 interface NutrienteInfo {
     nome: string;
     quantidade: number;
-    quantidadeNutriente: number;
+    quantidadeDeAlimento: number;
 }
 
-function gerarListasOrdenadasPorNutriente() {
+function gerarListasOrdenadasPorNutriente(refeicoes: Refeicoes) {
     const nutrientesGlobais: { [nutriente: string]: NutrienteInfo[] } = {};
 
 
@@ -395,33 +368,38 @@ function gerarListasOrdenadasPorNutriente() {
 
             // Itera sobre vitaminas
             for (const [vitamina, info] of Object.entries(item.vitaminas)) {
-                const quantidade = info.real * (item.quantidade / 100); // Ajusta a quantidade da vitamina
+                const quantidade = info.real; // Ajusta a quantidade da vitamina
                 if (!nutrientesGlobais[vitamina]) {
                     nutrientesGlobais[vitamina] = [];
                 }
 
                 // Verifica se o item já existe na lista e soma a quantidade
                 const existente = nutrientesGlobais[vitamina].find(entry => entry.nome === item.nome);
+                if (item.nome=="Ovos") {
+                    console.log()
+                }
                 if (existente) {
                     existente.quantidade += quantidade;
+                    existente.quantidadeDeAlimento += item.quantidade;
                 } else {
-                    nutrientesGlobais[vitamina].push({ nome: item.nome, quantidadeNutriente: item.quantidade, quantidade: quantidade });
+                    nutrientesGlobais[vitamina].push({ nome: item.nome, quantidadeDeAlimento: item.quantidade, quantidade: quantidade });
                 }
             }
 
             // Itera sobre minerais
             for (const [mineral, info] of Object.entries(item.minerais)) {
-                const quantidade = info.real * (item.quantidade / 100); // Ajusta a quantidade do mineral
+                const quantidade = info.real; // Ajusta a quantidade do mineral
                 if (!nutrientesGlobais[mineral]) {
                     nutrientesGlobais[mineral] = [];
-                }
+                } 
 
                 // Verifica se o item já existe na lista e soma a quantidade
                 const existente = nutrientesGlobais[mineral].find(entry => entry.nome === item.nome);
                 if (existente) {
                     existente.quantidade += quantidade;
+                    existente.quantidadeDeAlimento += item.quantidade;
                 } else {
-                    nutrientesGlobais[mineral].push({  nome: item.nome, quantidadeNutriente: item.quantidade, quantidade: quantidade });
+                    nutrientesGlobais[mineral].push({  nome: item.nome, quantidadeDeAlimento: item.quantidade, quantidade: quantidade });
                 }
             }
         });

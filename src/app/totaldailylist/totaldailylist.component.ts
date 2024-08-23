@@ -6,6 +6,7 @@ import { MatTableModule } from '@angular/material/table';
 import * as Util from '../util/util';
 import { MatTooltip, MatTooltipModule } from '@angular/material/tooltip';
 import { MtxTooltipModule } from '@ng-matero/extensions/tooltip';
+import { Refeicoes } from '../data/refeicoes';
 
 
 
@@ -28,6 +29,9 @@ export class TotaldailylistComponent {
 
   @Input()
   totalNutrientes!: TotalNutrientes;
+
+  @Input()
+  refeicoes!: Refeicoes;
   recomendado = recomendado;
   vitaminas:any = []; 
 JSON: any;
@@ -36,7 +40,7 @@ JSON: any;
   
 
   ngOnInit() {
-    this.vitaminas = Util.formatarTabelaNutrientes(this.totalNutrientes);
+    this.vitaminas = Util.formatarTabelaNutrientes(this.totalNutrientes, this.refeicoes);
 
   }
 

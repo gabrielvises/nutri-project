@@ -1,6 +1,6 @@
 import * as Util from "../util/util";
-import * as Alimentos from "./listaAlimento";
-import * as Marmita from "./marmita";
+import * as listaAlimentos from "./listaAlimento";
+import {Marmita} from "./marmita";
 import { Alimento } from "../data/alimento";
 
 export class Refeicoes {
@@ -12,58 +12,60 @@ export class Refeicoes {
     ceia: Alimento[];
 
     constructor(
-        preCafeDaManha: Alimento[],
-        cafeDaManha: Alimento[],
-        almoco: Alimento[],
-        lancheDaTarde: Alimento[],
-        jantar: Alimento[],
-        ceia: Alimento[],
-    ) {
-        this.preCafeDaManha = preCafeDaManha;
-        this.cafeDaManha = cafeDaManha;
-        this.almoco = almoco;
-        this.lancheDaTarde = lancheDaTarde;
-        this.jantar = jantar;
-        this.ceia = ceia;
-    }
- 
 
-   
+    ) {
+        this.preCafeDaManha = [];
+        this.cafeDaManha = [];
+        this.almoco = [];
+        this.lancheDaTarde = [];
+        this.jantar = [];
+        this.ceia = [];
+    }
+
+    iniciar() {
+        var marmita = new Marmita();
+        marmita.iniciar();
+        
+        this.preCafeDaManha = [
+            Util.setQuantidade(listaAlimentos.pera, 75),
+            Util.setQuantidade(listaAlimentos.mamaoFormosa, 100),
+            Util.setQuantidade(listaAlimentos.kiwi, 50),
+            Util.setQuantidade(listaAlimentos.melao, 100),
+            Util.setQuantidade(listaAlimentos.levedoDeCerveja, 5),
+            Util.setQuantidade(listaAlimentos.psyllium, 5),
+
+
+        ];
+        this.cafeDaManha = [
+            Util.setQuantidade(listaAlimentos.ovos, 100),
+            Util.setQuantidade(listaAlimentos.azeiteDeOlive, 5),
+            Util.setQuantidade(listaAlimentos.aveia, 30),
+            Util.setQuantidade(listaAlimentos.brócolis, 30),
+            Util.setQuantidade(listaAlimentos.pao, 30),
+
+        ];
+        this.almoco = [
+            ...marmita.marmita
+        ];
+        this.lancheDaTarde = [
+            Util.setQuantidade(listaAlimentos.leite, 300),
+            Util.setQuantidade(listaAlimentos.whey, 50),
+            Util.setQuantidade(listaAlimentos.banana, 110),
+            Util.setQuantidade(listaAlimentos.morango, 50),
+        ];
+        this.jantar = [
+            ...marmita.marmita
+        ];
+        this.ceia = [
+            Util.setQuantidade(listaAlimentos.abacate, 100),
+            Util.setQuantidade(listaAlimentos.amendoas, 15),
+            Util.setQuantidade(listaAlimentos.drpeanut, 20),
+        ];
+        console.log();
+    }
+
 }
 
-export const refeicoes: Refeicoes = {
-    preCafeDaManha: [
-        Util.setQuantidade(Alimentos.maca, 100),
-        Util.setQuantidade(Alimentos.mamaoFormosa, 100),
-        Util.setQuantidade(Alimentos.kiwi, 50),
-        Util.setQuantidade(Alimentos.melao, 100),
-        Util.setQuantidade(Alimentos.pera, 50),
-
-    ],
-    cafeDaManha: [
-        Util.setQuantidade(Alimentos.ovos, 100),
-        Util.setQuantidade(Alimentos.azeiteDeOlive, 5),
-        Util.setQuantidade(Alimentos.aveia, 30),
-        Util.setQuantidade(Alimentos.brócolis, 30),
-        Util.setQuantidade(Alimentos.pao, 30),
-    ],
-    almoco: [ 
-        ...Marmita.marmita
-    ],
-    lancheDaTarde: [
-        Util.setQuantidade(Alimentos.leite, 300),
-        Util.setQuantidade(Alimentos.whey, 30),
-        Util.setQuantidade(Alimentos.banana, 110),
-        Util.setQuantidade(Alimentos.morango, 50),
-    ],
-    jantar: [
-        ...Marmita.marmita
-    ],
-    ceia: [
-        Util.setQuantidade(Alimentos.abacate, 100),
-        Util.setQuantidade(Alimentos.amendoas, 15),
-    ]
-};
 
 
 

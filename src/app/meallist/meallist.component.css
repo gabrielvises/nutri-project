@@ -1,7 +1,35 @@
 .meal-card {
-    margin-bottom: 20px;
+    margin-bottom: 10px;
+    margin-right: 5px;
+    border-radius: 4px;
+    box-shadow: 0px 1px 5px -1px rgba(0, 0, 0, 0.1), 0px 1px 1px 0px rgba(0, 0, 0, 0.07), 0px 1px 1px 0px rgba(0, 0, 0, 0.06);
   }
   
+
+  
   .macros {
-    margin-top: 10px;
+    
+    opacity: 1;
+    transition: opacity 0.3s ease; /* Animação de desvanecimento suave */
   }
+  
+  .macros-hidden {
+    opacity: 0;
+    height: 0; /* Opcional: reduz a altura para evitar espaço extra */
+    overflow: hidden; /* Garante que o conteúdo não ultrapasse o contêiner */
+  }
+
+  .less-bold {
+    font-weight: 500; /* Ajuste o valor conforme necessário */
+}
+
+:host {
+  display: block;
+  height: 100%;
+}
+
+.scroll-container {
+  position: relative; /* Verifique o posicionamento */
+  overflow-y: auto;
+  height: 100%; /* Ajuste conforme necessário */
+}

@@ -1,29 +1,76 @@
 import * as Util from "../util/util";
-import * as Alimento from "./listaAlimento";
-import * as Receita from "./receita";
+import { Alimento } from "./alimento";
+
+import * as listaAlimentos from "./listaAlimento";
 
 
-var pure = Util.calcularMacrosReceita( "Purê de Batata Doce", Receita.ingredientespuredebatatadoce);
-var strogonoffDeFrango = Util.calcularMacrosReceita( "Strogonoff de Frango", Receita.ingredientesstrogonoffdefrango);
+export class Marmita {
+    marmita: Alimento[];
+    private proteina: Alimento[] = [];
+    private batatadoce: Alimento[] = [];
 
-// var strogonoffDeCarne = util.calcularMacrosReceita( "Strogonoff de Carne", receita.ingredientesstrogonoffdecarne);
+    constructor(
+    ) {
+        this.marmita = [];
+    }
 
-export const proteina = [
-    // util.alimento(strogonoff, 180),
-    Util.setQuantidade(strogonoffDeFrango, 190),
-];
-export const batatadoce = [
-      Alimento.batataDoce,
-      Util.setQuantidade(pure, 80),
-];
+    iniciar() {
 
-export const marmita = [
-    proteina[0],
-    batatadoce[1],
-    Util.setQuantidade(Alimento.arrozIntegral,60),
-    Util.setQuantidade(Alimento.brócolis,25),
-    Util.setQuantidade(Alimento.feijaoPreto, 120),
-    
- 
-];
+        const ingredientesCremeDeLeite: Alimento[] = [
+            Util.setQuantidade(listaAlimentos.queijoRicotta, 300),
+            Util.setQuantidade(listaAlimentos.leiteEmPó, 20),
+            Util.setQuantidade(listaAlimentos.agua, 250),
+        ];
+
+        var cremeDeLeiteCaseiro = Util.calcularMacrosReceita("Creme de leite caseiro", ingredientesCremeDeLeite);
+
+        const ingredientespuredebatatadoce: Alimento[] = [
+            Util.setQuantidade(listaAlimentos.batataDoce, 1000),
+            Util.setQuantidade(listaAlimentos.leite, 120),
+            Util.setQuantidade(listaAlimentos.azeiteDeOlive, 5),
+        ];
+
+        const ingredientesstrogonoffdefrango: Alimento[] = [
+            Util.setQuantidade(listaAlimentos.peitoDeFrango, 1500),
+            Util.setQuantidade(listaAlimentos.azeiteDeOlive, 15),
+            Util.setQuantidade(listaAlimentos.polpaDeTomate, 300),
+            cremeDeLeiteCaseiro,
+            Util.setQuantidade(listaAlimentos.ketchup, 40),
+            Util.setQuantidade(listaAlimentos.mostarda, 20),
+
+        ];
+
+        // const ingredientesstrogonoffdecarne: Alimento[] = [
+        //     Util.setQuantidade(listaAlimentos.carnePatinho, 1600),
+        //     Util.setQuantidade(listaAlimentos.azeiteDeOlive, 20),
+        //     Util.setQuantidade(listaAlimentos.polpaDeTomate, 300),
+        //     cremeDeLeiteCaseiro,
+        //     Util.setQuantidade(listaAlimentos.ketchup, 40),
+        //     Util.setQuantidade(listaAlimentos.mostarda, 20),
+        // ];
+
+
+        var pure = Util.calcularMacrosReceita("Purê de Batata Doce", ingredientespuredebatatadoce);
+        var strogonoffDeFrango = Util.calcularMacrosReceita("Strogonoff de Frango", ingredientesstrogonoffdefrango);
+        this.proteina = [
+            // util.alimento(strogonoff, 180), 
+            Util.setQuantidade(strogonoffDeFrango, 190),
+        ];
+        this.batatadoce = [
+            listaAlimentos.batataDoce,
+            Util.setQuantidade(pure, 80),
+        ];
+
+        this.marmita = [
+            this.proteina[0],
+            this.batatadoce[1],
+            Util.setQuantidade(listaAlimentos.arrozIntegral, 60),
+            Util.setQuantidade(listaAlimentos.brócolis, 25),  
+            Util.setQuantidade(listaAlimentos.feijaoPreto, 120),
+        ];
+
+        console.log();
+    }
+}
+
 

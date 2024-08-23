@@ -31,6 +31,7 @@ export class Alimento {
     carboidratos: Nutriente;
     gordura: Nutriente;
     fibras: Nutriente;
+    acucar: Nutriente;
   }
   
   export interface Vitaminas {
