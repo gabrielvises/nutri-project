@@ -115,6 +115,5 @@ export const recomendado: TotalNutrientes = {
     Potassio: 3500, //mg
     Sodio: 2300, //mg
     Zinco: 11, //mg
-    // iodo: 150, //µg
 
 }

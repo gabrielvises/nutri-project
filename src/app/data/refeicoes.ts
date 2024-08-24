@@ -27,12 +27,12 @@ export class Refeicoes {
         marmita.iniciar();
         
         this.preCafeDaManha = [
-            Util.setQuantidade(listaAlimentos.pera, 75),
             Util.setQuantidade(listaAlimentos.mamaoFormosa, 100),
             Util.setQuantidade(listaAlimentos.kiwi, 50),
-            Util.setQuantidade(listaAlimentos.melao, 100),
             Util.setQuantidade(listaAlimentos.levedoDeCerveja, 5),
             Util.setQuantidade(listaAlimentos.psyllium, 5),
+            Util.setQuantidade(listaAlimentos.whey, 10),
+
 
 
         ];
@@ -49,8 +49,8 @@ export class Refeicoes {
         ];
         this.lancheDaTarde = [
             Util.setQuantidade(listaAlimentos.leite, 300),
-            Util.setQuantidade(listaAlimentos.whey, 50),
-            Util.setQuantidade(listaAlimentos.banana, 110),
+            Util.setQuantidade(listaAlimentos.whey, 30),
+            Util.setQuantidade(listaAlimentos.banana, 100),
             Util.setQuantidade(listaAlimentos.morango, 50),
         ];
         this.jantar = [
