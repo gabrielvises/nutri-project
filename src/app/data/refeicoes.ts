@@ -25,16 +25,16 @@ export class Refeicoes {
     iniciar() {
         var marmita = new Marmita();
         marmita.iniciar();
-        
+
+    
         this.preCafeDaManha = [
+            // Util.setQuantidade(shot, 210),
             Util.setQuantidade(listaAlimentos.mamaoFormosa, 100),
+            // Util.setQuantidade(listaAlimentos.iogurteNaturalDesnatado, 160),
             Util.setQuantidade(listaAlimentos.kiwi, 50),
-            Util.setQuantidade(listaAlimentos.levedoDeCerveja, 5),
             Util.setQuantidade(listaAlimentos.psyllium, 5),
             Util.setQuantidade(listaAlimentos.whey, 10),
-
-
-
+            Util.setQuantidade(listaAlimentos.levedoDeCerveja, 10),
         ];
         this.cafeDaManha = [
             Util.setQuantidade(listaAlimentos.ovos, 100),
@@ -48,8 +48,10 @@ export class Refeicoes {
             ...marmita.marmita
         ];
         this.lancheDaTarde = [
-            Util.setQuantidade(listaAlimentos.leite, 300),
-            Util.setQuantidade(listaAlimentos.whey, 30),
+            // Util.setQuantidade(Util.lixo(562), 100),
+            // Util.setQuantidade(Util.lixo(480), 100),
+            Util.setQuantidade(listaAlimentos.leite, 200),
+            Util.setQuantidade(listaAlimentos.whey, 40),
             Util.setQuantidade(listaAlimentos.banana, 100),
             Util.setQuantidade(listaAlimentos.morango, 50),
         ];

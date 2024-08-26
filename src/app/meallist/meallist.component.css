@@ -1,48 +1,127 @@
 .meal-card {
-    margin-bottom: 10px;
-    margin-right: 5px;
-    border-radius: 4px;
-    box-shadow: 0px 1px 5px -1px rgba(0, 0, 0, 0.1), 0px 1px 1px 0px rgba(0, 0, 0, 0.07), 0px 1px 1px 0px rgba(0, 0, 0, 0.06);
-  }
-  
+  margin-bottom: 10px;
+  margin-right: 5px;
+  border-radius: 4px;
+  box-shadow: 0px 1px 5px -1px rgba(0, 0, 0, 0.1), 0px 1px 1px 0px rgba(0, 0, 0, 0.07), 0px 1px 1px 0px rgba(0, 0, 0, 0.06);
+}
 
-  
-  .macros {
-    
-    opacity: 1;
-    transition: opacity 0.3s ease; /* Animação de desvanecimento suave */
-  }
-  
-  .macros-hidden {
-    opacity: 0;
-    height: 0; /* Opcional: reduz a altura para evitar espaço extra */
-    overflow: hidden; /* Garante que o conteúdo não ultrapasse o contêiner */
-  }
 
-  .less-bold {
-    font-weight: 500; /* Ajuste o valor conforme necessário */
+
+.macros {
+
+  opacity: 1;
+  transition: opacity 0.3s ease;
+  /* Animação de desvanecimento suave */
+}
+
+.macros-hidden {
+  opacity: 0;
+  height: 0;
+  /* Opcional: reduz a altura para evitar espaço extra */
+  overflow: hidden;
+  /* Garante que o conteúdo não ultrapasse o contêiner */
+}
+
+.less-bold {
+  font-weight: 500;
+  /* Ajuste o valor conforme necessário */
 }
 
 :host {
   display: block;
-  height: 100%;
+  height: calc(100vh - 160px);
 }
 
 .scroll-container {
-  position: relative; /* Verifique o posicionamento */
+  position: relative;
+  /* Verifique o posicionamento */
   overflow-y: auto;
-  height: 100%; /* Ajuste conforme necessário */
+  height: 100%;
+  /* Ajuste conforme necessário */
 }
 
 .scroll-container::-webkit-scrollbar {
-  width: 12px; /* Largura da barra de rolagem */
+  width: 12px;
+  /* Largura da barra de rolagem */
 }
 
 .scroll-container::-webkit-scrollbar-thumb {
-  background-color: rgba(0, 0, 0, 0.3); /* Cor da parte deslizante da barra de rolagem */
-  border-radius: 6px; /* Bordas arredondadas */
+  background-color: rgba(0, 0, 0, 0.3);
+  /* Cor da parte deslizante da barra de rolagem */
+  border-radius: 6px;
+  /* Bordas arredondadas */
 }
 
 .scroll-container::-webkit-scrollbar-track {
-  background-color: #f1f1f1; /* Cor de fundo da área da barra de rolagem */
+  background-color: #f1f1f1;
+  /* Cor de fundo da área da barra de rolagem */
+}
+
+.label-colorido {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: #222;
+  padding: 5px 10px;
+  min-width: 80px;
+  text-align: center;
+  border-radius: 5px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.label-lacteo {
+  background-color: #e3f2fd; /* LightBlue */
+}
+
+.label-fruta {
+  background-color: #ffcc80; /* LightOrange */
+}
+
+.label-proteina {
+  background-color: #ffcc80; /* LightOrange */
+}
+
+.label-oleo {
+  background-color: #ffab91; /* LightSalmon */
+}
+
+.label-grao {
+  background-color: #f5f5f5; /* LightGray */
+}
+
+.label-vegetal {
+  background-color: #c8e6c9; /* LightGreen */
+}
+
+.label-tuberculo {
+  background-color: #ffcc80; /* LightOrange */
+}
+
+.label-leguminosa {
+  background-color: #dcedc8; /* LightGreen */
+}
+
+.label-suplemento {
+  background-color: #e1bee7; /* LightPurple */
+}
+
+.label-oleaginosa {
+  background-color: #ffab91; /* LightSalmon */
+}
+
+.label-condimento {
+  background-color: #f8bbd0; /* LightPink */
+}
+
+.label-fibra {
+  background-color: #dce775; /* LightGreen */
+}
+
+.label-bebida {
+  background-color: #e3f2fd; /* LightBlue */
+}
+
+.label-receita {
+  background-color: #ff9800; /* DeepOrange */
 }

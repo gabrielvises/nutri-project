@@ -1,4 +1,4 @@
-import { Alimento } from "../data/alimento";
+import { Alimento, TiposAlimento } from "../data/alimento";
 import {  Refeicoes } from "../data/refeicoes";
 import { DistribuicaoMacros, MacroPorKg, recomendado, TotalKcal, TotalNutrientes } from "../data/total";
 
@@ -10,6 +10,50 @@ export function setQuantidade(alimento: Alimento, quantidade: number): Alimento 
     var retorno1 = calcularMacrosAlimento(copia, quantidade);
     return retorno1;
 }
+
+export function lixo(calorias: number): Alimento {
+
+    var retorno1: Alimento = new Alimento(
+        "Lixo",
+        100,
+        TiposAlimento.x,
+        {
+            calorias: { ref: calorias, real: 0 },
+            proteina: { ref: 0, real: 0 },
+            carboidratos: { ref: 0, real: 0 },
+            gordura: { ref: 0, real: 0 },
+            fibras: { ref: 0, real: 0 },
+            acucar: {ref: 0, real: 0},
+          },
+          {
+            A: { ref: 0, real: 0 },
+            B1: { ref: 0, real: 0 },
+            B2: { ref: 0, real: 0 },
+            B3: { ref: 0, real: 0 },
+            B5: { ref: 0, real: 0 },
+            B6: { ref: 0, real: 0 },
+            B7: { ref: 0, real: 0 },
+            B9: { ref: 0, real: 0 },
+            B12: { ref: 0, real: 0 },
+            C: { ref: 0, real: 0 },
+            D: { ref: 0, real: 0 },
+            E: { ref: 0, real: 0 },
+            K: { ref: 0.0, real: 0 }
+          },
+          {
+            Cálcio: { ref: 0, real: 0 },
+            Ferro: { ref: 0, real: 0 },
+            Magnésio: { ref: 0, real: 0 },
+            Fósforo: { ref: 0, real: 0 },
+            Potássio: { ref: 0, real: 0 },
+            Sódio: { ref: 0, real: 0 },
+            Zinco: { ref: 0, real: 0 }
+          }
+        );
+        
+        return retorno1;
+    };
+
 
 
 export function calcularMacrosReceita(nomeReceita: string, ingredientes: Alimento[]): Alimento {
@@ -83,6 +127,7 @@ export function calcularMacrosReceita(nomeReceita: string, ingredientes: Aliment
     let resultado: Alimento = new Alimento(
         nomeReceita,
         totais.pesoTotal,
+        TiposAlimento.receita,
         {
             calorias: { ref: (totais.calorias / totais.pesoTotal) * 100, real: 0 },
             proteina: { ref: (totais.proteina / totais.pesoTotal) * 100, real: 0 },

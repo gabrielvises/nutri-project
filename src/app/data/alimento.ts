@@ -1,6 +1,7 @@
 export class Alimento {
     nome: string;
     quantidade: number;
+    tipo: string;
     macros: Macros;
     vitaminas: Vitaminas;
     minerais: Minerais;
@@ -8,12 +9,14 @@ export class Alimento {
     constructor(
       nome: string,
       quantidade: number,
+      tipo: string,
       macros: Macros,
       vitaminas: Vitaminas,
       minerais: Minerais
     ) {
       this.nome = nome;
       this.quantidade = quantidade;
+      this.tipo = tipo;
       this.macros = macros;
       this.vitaminas = vitaminas;
       this.minerais = minerais;
@@ -59,3 +62,27 @@ export class Alimento {
     Sódio: Nutriente;
     Zinco: Nutriente;
   }
+  export class TiposAlimento {
+    static x: string = "Teste";
+    static receita: string = "Receita";
+    static fruta: string = "Fruta";
+    static legumes: string = "Legumes";
+    static suplemento: string = "Suplemento";
+    static oleo: string = "Óleo";
+    static proteina: string = "Proteína";
+    static grao: string = "Grão";
+    static vegetal: string = "Vegetal";
+    static tuberculo: string = "Tubérculo";
+    static leguminosa: string = "Leguminosa";
+    static lacteo: string = "Lácteo";
+    static fibra: string = "Fibra";
+    static oleaginosa: string = "Oleaginosa";
+    static condimento: string = "Condimento";
+    static bebida: string = "Bebida";
+    // x: string;
+    // x: string;
+    // x: string;
+    // x: string;
+    // x: string;
+    // x: string;
+  } 

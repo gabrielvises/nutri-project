@@ -1,8 +1,48 @@
 import { Alimento } from "./alimento";
+import { TiposAlimento } from "./alimento";
+
+export const iogurteNaturalDesnatado = new Alimento(
+  'Iogurte Natural Desnatado',
+  99999,
+  TiposAlimento.lacteo,
+  {
+    calorias: { ref: 33, real: 0 },
+    proteina: { ref: 3.6, real: 0 },
+    carboidratos: { ref: 4.7, real: 0 },
+    gordura: { ref: 0.1, real: 0 },
+    fibras: { ref: 0.0, real: 0 },
+    acucar: { ref: 4.7, real: 0 },
+  },
+  {
+    A: { ref: 0, real: 0 },
+    B1: { ref: 0.04, real: 0 },
+    B2: { ref: 0.2, real: 0 },
+    B3: { ref: 0.1, real: 0 },
+    B5: { ref: 0.4, real: 0 },
+    B6: { ref: 0.1, real: 0 },
+    B7: { ref: 0.0, real: 0 },
+    B9: { ref: 5, real: 0 },
+    B12: { ref: 1.0, real: 0 },
+    C: { ref: 0, real: 0 },
+    D: { ref: 0.0, real: 0 },
+    E: { ref: 0.0, real: 0 },
+    K: { ref: 0, real: 0 }
+  },
+  {
+    Cálcio: { ref: 150, real: 0 },
+    Ferro: { ref: 0.1, real: 0 },
+    Magnésio: { ref: 11, real: 0 },
+    Fósforo: { ref: 90, real: 0 },
+    Potássio: { ref: 150, real: 0 },
+    Sódio: { ref: 50, real: 0 },
+    Zinco: { ref: 0.5, real: 0 }
+  }
+);
 
 export const maca = new Alimento(
   "Maçã",
-  999990,
+  99999,
+  TiposAlimento.fruta,
   {
     calorias: { ref: 56, real: 0 },
     proteina: { ref: 0.3, real: 0 },
@@ -39,7 +79,8 @@ export const maca = new Alimento(
 
 export const mamaoFormosa = new Alimento(
   'Mamão Formosa',
-  999990,
+  99999,
+  TiposAlimento.fruta,
   {
     calorias: { ref: 45, real: 0 },
     proteina: { ref: 0.8, real: 0 },
@@ -77,6 +118,7 @@ export const mamaoFormosa = new Alimento(
 export const kiwi = new Alimento(
   "Kiwi",
   99999,
+  TiposAlimento.fruta,
   {
     calorias: { ref: 51, real: 0 },
     proteina: { ref: 1.3, real: 0 },
@@ -112,7 +154,8 @@ export const kiwi = new Alimento(
 );
 export const melao = new Alimento(
   "Melão",
-  999990,
+  99999,
+  TiposAlimento.fruta,
   {
     calorias: { ref: 29, real: 0 },
     proteina: { ref: 0.7, real: 0 },
@@ -150,6 +193,7 @@ export const melao = new Alimento(
 export const pera = new Alimento(
   "Pera",
   99999,
+  TiposAlimento.fruta,
   {
     calorias: { ref: 53, real: 0 },
     proteina: { ref: 0.6, real: 0 },
@@ -186,7 +230,8 @@ export const pera = new Alimento(
 
 export const ovos = new Alimento(
   "Ovos",
-  999990,
+  99999,
+  TiposAlimento.proteina,
   {
     calorias: { ref: 143, real: 0 },
     proteina: { ref: 13, real: 0 },
@@ -224,6 +269,7 @@ export const ovos = new Alimento(
 export const azeiteDeOlive = new Alimento(
   "Azeite de Oliva",
   5,
+  TiposAlimento.oleo,
   {
     calorias: { ref: 884, real: 0 },
     proteina: { ref: 0, real: 0 },
@@ -260,6 +306,7 @@ export const azeiteDeOlive = new Alimento(
 export const aveia = new Alimento(
   "Aveia",
   99999,
+  TiposAlimento.grao,
   {
     calorias: { ref: 376, real: 0 },
     proteina: { ref: 14, real: 0 },
@@ -275,7 +322,7 @@ export const aveia = new Alimento(
     B3: { ref: 0.96, real: 0 },
     B5: { ref: 0.73, real: 0 },
     B6: { ref: 0.11, real: 0 },
-    B7: { ref: 0, real: 0 },
+    B7: { ref: 24.6, real: 0 },
     B9: { ref: 32, real: 0 },
     B12: { ref: 0, real: 0 },
     C: { ref: 0, real: 0 },
@@ -296,6 +343,7 @@ export const aveia = new Alimento(
 export const brócolis = new Alimento(
   "Brócolis",
   99999,
+  TiposAlimento.vegetal,
   {
     calorias: { ref: 25, real: 0 },
     proteina: { ref: 2.1, real: 0 },
@@ -332,6 +380,7 @@ export const brócolis = new Alimento(
 export const pao = new Alimento(
   "Pão Castanha-do-Pará & Quinoa",
   99999,
+  TiposAlimento.grao,
   {
     calorias: { ref: 254, real: 0 },
     proteina: { ref: 11.6, real: 0 },
@@ -371,7 +420,8 @@ export const pao = new Alimento(
 
 export const peitoDeFrango = new Alimento(
   "Peito de frango cozido",
-  999990,
+  99999,
+  TiposAlimento.proteina,
   {
     calorias: { ref: 163, real: 0 },
     proteina: { ref: 31.5, real: 0 },
@@ -408,7 +458,8 @@ export const peitoDeFrango = new Alimento(
 
 export const carnePatinho = new Alimento(
   "Carne de Patinho cru",
-  999990,
+  99999,
+  TiposAlimento.proteina,
   {
     calorias: { ref: 133, real: 0 },
     proteina: { ref: 21.7, real: 0 },
@@ -443,10 +494,88 @@ export const carnePatinho = new Alimento(
   }
 );
 
+export const cogumeloChampignon = new Alimento(
+  "Cogumelo Champignon",
+  99999,
+  TiposAlimento.vegetal,
+  {
+    calorias: { ref: 22, real: 0 },
+    proteina: { ref: 3.1, real: 0 },
+    carboidratos: { ref: 3.3, real: 0 },
+    gordura: { ref: 0.3, real: 0 },
+    fibras: { ref: 1.0, real: 0 },
+    acucar: { ref: 1.7, real: 0 }
+  },
+  {
+    A: { ref: 0, real: 0 },
+    B1: { ref: 0.1, real: 0 },
+    B2: { ref: 0.3, real: 0 },
+    B3: { ref: 4.6, real: 0 },
+    B5: { ref: 1.5, real: 0 },
+    B6: { ref: 0.1, real: 0 },
+    B7: { ref: 0, real: 0 },
+    B9: { ref: 17, real: 0 },
+    B12: { ref: 0, real: 0 },
+    C: { ref: 0, real: 0 },
+    D: { ref: 0, real: 0 },
+    E: { ref: 0, real: 0 },
+    K: { ref: 0, real: 0 }
+  },
+  {
+    Cálcio: { ref: 3, real: 0 },
+    Ferro: { ref: 0.5, real: 0 },
+    Magnésio: { ref: 9, real: 0 },
+    Fósforo: { ref: 86, real: 0 },
+    Potássio: { ref: 318, real: 0 },
+    Sódio: { ref: 5, real: 0 },
+    Zinco: { ref: 0.5, real: 0 }
+  }
+);
+
+export const cebolaCrua = new Alimento(
+  "Cebola Crua",
+  99999,
+  TiposAlimento.vegetal,
+  {
+    calorias: { ref: 39, real: 0 },
+    proteina: { ref: 1.7, real: 0 },
+    carboidratos: { ref: 8.9, real: 0 },
+    gordura: { ref: 0.1, real: 0 },
+    fibras: { ref: 2.2, real: 0 },
+    acucar: { ref: 4.2, real: 0 }
+  },
+  {
+    A: { ref: 0, real: 0 },
+    B1: { ref: 0.04, real: 0 },
+    B2: { ref: 0.1, real: 0 },
+    B3: { ref: 0.1, real: 0 },
+    B5: { ref: 0.1, real: 0 },
+    B6: { ref: 0.14, real: 0 },
+    B7: { ref: 0, real: 0 },
+    B9: { ref: 19, real: 0 },
+    B12: { ref: 0, real: 0 },
+    C: { ref: 4.7, real: 0 },
+    D: { ref: 0, real: 0 },
+    E: { ref: 0, real: 0 },
+    K: { ref: 0, real: 0 }
+  },
+  {
+    Cálcio: { ref: 14, real: 0 },
+    Ferro: { ref: 0.2, real: 0 },
+    Magnésio: { ref: 12, real: 0 },
+    Fósforo: { ref: 38, real: 0 },
+    Potássio: { ref: 176, real: 0 },
+    Sódio: { ref: 1, real: 0 },
+    Zinco: { ref: 0.2, real: 0 }
+  }
+);
+
+
 
 export const batataDoce = new Alimento(
   "Batata Doce cozida",
   99999,
+  TiposAlimento.tuberculo,
   {
     calorias: { ref: 77, real: 0 },
     proteina: { ref: 0.6, real: 0 },
@@ -484,6 +613,7 @@ export const batataDoce = new Alimento(
 export const arrozIntegral = new Alimento(
   "Arroz Integral",
   99999,
+  TiposAlimento.grao,
   {
     calorias: { ref: 124, real: 0 },
     proteina: { ref: 2.6, real: 0 },
@@ -520,7 +650,8 @@ export const arrozIntegral = new Alimento(
 
 export const feijaoPreto = new Alimento(
   "Feijão Preto",
-  999990,
+  99999,
+  TiposAlimento.leguminosa,
   {
     calorias: { ref: 77, real: 0 },
     proteina: { ref: 4.5, real: 0 },
@@ -557,7 +688,8 @@ export const feijaoPreto = new Alimento(
 
 export const leite = new Alimento(
   "Leite Desnatado",
-  999990,
+  99999,
+  TiposAlimento.lacteo,
   {
     calorias: { ref: 31, real: 0 },
     proteina: { ref: 3, real: 0 },
@@ -595,6 +727,7 @@ export const leite = new Alimento(
 export const whey = new Alimento(
   "Whey",
   99999,
+  TiposAlimento.suplemento,
   {
     calorias: { ref: 420, real: 0 },
     proteina: { ref: 80, real: 0 },
@@ -631,7 +764,8 @@ export const whey = new Alimento(
 
 export const banana = new Alimento(
   "Banana",
-  999990,
+  99999,
+  TiposAlimento.fruta,
   {
     calorias: { ref: 92, real: 0 },
     proteina: { ref: 1.4, real: 0 },
@@ -667,7 +801,8 @@ export const banana = new Alimento(
 );
 export const morango = new Alimento(
   "Morango",
-  999990,
+  99999,
+  TiposAlimento.fruta,
   {
     calorias: { ref: 30, real: 0 },
     proteina: { ref: 0.9, real: 0 },
@@ -704,6 +839,7 @@ export const morango = new Alimento(
 export const psyllium = new Alimento(
   "Psyllium",
   9999,
+  TiposAlimento.fibra,
   {
     calorias: { ref: 370, real: 0 },
     proteina: { ref: 6, real: 0 },
@@ -741,6 +877,7 @@ export const psyllium = new Alimento(
 export const levedoDeCerveja = new Alimento(
   "Levedo de cerveja",
   9999,
+  TiposAlimento.suplemento,
   {
     calorias: { ref: 325, real: 0 },
     proteina: { ref: 40.4, real: 0 },
@@ -777,7 +914,8 @@ export const levedoDeCerveja = new Alimento(
 
 export const abacate = new Alimento(
   "Abacate",
-  999990,
+  99999,
+  TiposAlimento.fruta,
   {
     calorias: { ref: 96, real: 0 },
     proteina: { ref: 1.2, real: 0 },
@@ -815,6 +953,7 @@ export const abacate = new Alimento(
 export const amendoas = new Alimento(
   "Amêndoas",
   15,
+  TiposAlimento.oleaginosa,
   {
     calorias: { ref: 581, real: 0 },
     proteina: { ref: 18.6, real: 0 },
@@ -852,6 +991,7 @@ export const amendoas = new Alimento(
 export const drpeanut = new Alimento(
   "Dr Peanut",
   99999,
+  TiposAlimento.oleaginosa,
   {
     calorias: { ref: 565, real: 0},
     proteina: { ref: 20, real: 0},
@@ -889,13 +1029,14 @@ export const drpeanut = new Alimento(
 export const polpaDeTomate = new Alimento(
   "Molho de Tomate Hemmer",
   99999, // quantidade em gramas
+  TiposAlimento.condimento,
   {
     calorias: { ref: 60, real: 0 },
     proteina: { ref: 0, real: 0 },
     carboidratos: { ref: 14.6, real: 0 },
     gordura: { ref: 0, real: 0 },
     fibras: { ref: 3.1, real: 0 },
-    acucar: {ref: 3.3, real: 0},
+    acucar: {ref: 4, real: 0},
   },
   {
     A: { ref: 0, real: 0 },
@@ -925,7 +1066,8 @@ export const polpaDeTomate = new Alimento(
 
 export const queijoRicotta = new Alimento(
   "Queijo Ricotta Fresco",
-  999990,
+  99999,
+  TiposAlimento.lacteo,
   {
     calorias: { ref: 167, real: 0 },
     proteina: { ref: 15, real: 0 },
@@ -963,6 +1105,7 @@ export const queijoRicotta = new Alimento(
 export const leiteEmPó = new Alimento(
   "Leite em pó desnatado",
   99999,
+  TiposAlimento.lacteo,
   {
     calorias: { ref: 370, real: 0 },
     proteina: { ref: 37.5, real: 0 },
@@ -1002,6 +1145,7 @@ export const leiteEmPó = new Alimento(
 export const ketchup = new Alimento(
   "Ketchup",
   99999,
+  TiposAlimento.condimento,
   {
     calorias: { ref: 90, real: 0 },
     proteina: { ref: 1.4, real: 0 },
@@ -1039,6 +1183,7 @@ export const ketchup = new Alimento(
 export const mostarda = new Alimento(
   "Mostarda",
   99999,
+  TiposAlimento.condimento,
   {
     calorias: { ref: 70, real: 0 },
     proteina: { ref: 2.8, real: 0 },
@@ -1075,7 +1220,8 @@ export const mostarda = new Alimento(
 
 export const agua = new Alimento(
   "Agua",
-  999990,
+  99999,
+  TiposAlimento.bebida,
   {
     calorias: { ref: 0, real: 0 },
     proteina: { ref: 0, real: 0 },
