@@ -10,6 +10,7 @@ export class Refeicoes {
     lancheDaTarde: Alimento[];
     jantar: Alimento[];
     ceia: Alimento[];
+    adicionais: Alimento[];
 
     constructor(
 
@@ -20,6 +21,7 @@ export class Refeicoes {
         this.lancheDaTarde = [];
         this.jantar = [];
         this.ceia = [];
+        this.adicionais = [];
     }
 
     iniciar() {
@@ -31,20 +33,24 @@ export class Refeicoes {
             // Util.setQuantidade(shot, 210),
             Util.setQuantidade(listaAlimentos.mamaoFormosa, 100),
             // Util.setQuantidade(listaAlimentos.iogurteNaturalDesnatado, 160),
-            Util.setQuantidade(listaAlimentos.kiwi, 50),
-            Util.setQuantidade(listaAlimentos.psyllium, 5),
+            Util.setQuantidade(listaAlimentos.kiwi, 50), 
+            Util.setQuantidade(listaAlimentos.linhaçaDourada, 10),
+            Util.setQuantidade(listaAlimentos.curcuma, 5),
             Util.setQuantidade(listaAlimentos.whey, 10),
             Util.setQuantidade(listaAlimentos.levedoDeCerveja, 10),
+            
         ];
         this.cafeDaManha = [
             Util.setQuantidade(listaAlimentos.ovos, 100),
             Util.setQuantidade(listaAlimentos.azeiteDeOlive, 5),
             Util.setQuantidade(listaAlimentos.aveia, 30),
-            Util.setQuantidade(listaAlimentos.brócolis, 30),
+            Util.setQuantidade(listaAlimentos.brócolis, 50),
             Util.setQuantidade(listaAlimentos.pao, 30),
+            Util.setQuantidade(listaAlimentos.tomateCereja, 30),
+            Util.setQuantidade(listaAlimentos.sal, 3),
 
         ];
-        this.almoco = [
+        this.almoco = [ 
             ...marmita.marmita
         ];
         this.lancheDaTarde = [
@@ -52,8 +58,11 @@ export class Refeicoes {
             // Util.setQuantidade(Util.lixo(480), 100),
             Util.setQuantidade(listaAlimentos.leite, 200),
             Util.setQuantidade(listaAlimentos.whey, 40),
-            Util.setQuantidade(listaAlimentos.banana, 100),
+            Util.setQuantidade(listaAlimentos.banana, 80),
             Util.setQuantidade(listaAlimentos.morango, 50),
+            Util.setQuantidade(listaAlimentos.amora, 20),
+            Util.setQuantidade(listaAlimentos.psyllium, 5),
+            
         ];
         this.jantar = [
             ...marmita.marmita
@@ -63,7 +72,11 @@ export class Refeicoes {
             Util.setQuantidade(listaAlimentos.amendoas, 15),
             Util.setQuantidade(listaAlimentos.drpeanut, 20),
         ];
-        console.log();
+        this.adicionais = [
+            Util.setQuantidade(listaAlimentos.vitaminaD3, 100),
+            Util.setQuantidade(listaAlimentos.dhaOmega3, 100),
+            
+        ]
     }
 
 }

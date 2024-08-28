@@ -11,6 +11,7 @@ export function setQuantidade(alimento: Alimento, quantidade: number): Alimento 
     return retorno1;
 }
 
+
 export function lixo(calorias: number): Alimento {
 
     var retorno1: Alimento = new Alimento(
@@ -159,7 +160,8 @@ export function calcularMacrosReceita(nomeReceita: string, ingredientes: Aliment
             Potássio: { ref: (totais.Potássio / totais.pesoTotal) * 100, real: 0 },
             Sódio: { ref: (totais.Sódio / totais.pesoTotal) * 100, real: 0 },
             Zinco: { ref: (totais.Zinco / totais.pesoTotal) * 100, real: 0 }
-        }
+        },
+        ingredientes,
     );
 
     return resultado;
@@ -420,9 +422,7 @@ function gerarListasOrdenadasPorNutriente(refeicoes: Refeicoes) {
 
                 // Verifica se o item já existe na lista e soma a quantidade
                 const existente = nutrientesGlobais[vitamina].find(entry => entry.nome === item.nome);
-                if (item.nome=="Ovos") {
-                    console.log()
-                }
+               
                 if (existente) {
                     existente.quantidade += quantidade;
                     existente.quantidadeDeAlimento += item.quantidade;
@@ -459,3 +459,45 @@ function gerarListasOrdenadasPorNutriente(refeicoes: Refeicoes) {
 
     return nutrientesGlobais;
 }
+
+export function getLabelClass(tipo: string): string {
+
+    switch (tipo) {
+      case 'Receita':
+        return 'label-receita';
+      case 'Fruta':
+        return 'label-fruta';
+      case 'Legumes':
+        return 'label-legumes';
+      case 'Suplemento':
+        return 'label-suplemento';
+      case 'Óleo':
+        return 'label-oleo';
+      case 'Proteína':
+        return 'label-proteina';
+      case 'Grão':
+        return 'label-grao';
+      case 'Vegetal':
+        return 'label-vegetal';
+      case 'Tubérculo':
+        return 'label-tuberculo';
+      case 'Leguminosa':
+        return 'label-leguminosa';
+      case 'Lácteo':
+        return 'label-lacteo';
+      case 'Fibra':
+        return 'label-fibra';
+      case 'Oleaginosa':
+        return 'label-oleaginosa';
+      case 'Condimento':
+        return 'label-condimento';
+      case 'Bebida':
+        return 'label-bebida';
+      case 'Semente':
+        return 'label-semente';
+      // Adicione mais tipos conforme necessário
+      default:
+        return 'label-padrao';
+    }
+
+  }

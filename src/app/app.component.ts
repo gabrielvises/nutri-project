@@ -7,6 +7,8 @@ import { TotalmeallistComponent } from "./totalmeallist/totalmeallist.component"
 import { TotaldailylistComponent } from "./totaldailylist/totaldailylist.component";
 import { MatSlideToggleModule } from '@angular/material/slide-toggle'; // Importa o módulo
 import { ScrollService } from './scroll.service';
+import { IngredienteDialogComponent } from './ingrediente-dialog/ingrediente-dialog.component';
+
 
 import * as Util from './util/util';
 import { Refeicoes } from './data/refeicoes';
@@ -19,8 +21,8 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [RouterOutlet, MatToolbarModule, MatNavList, MatListItem, MeallistComponent, TotalmeallistComponent, TotaldailylistComponent, CommonModule, MatSlideToggleModule],
   templateUrl: './app.component.html',
-  providers: [ScrollService], // Adicione o serviço aqui se não usar 'providedIn: root'
-  styleUrl: './app.component.css'
+  providers: [ScrollService, IngredienteDialogComponent], // Adicione o serviço aqui se não usar 'providedIn: root'
+  styleUrl: './app.component.css',
 }) 
 export class AppComponent {
   title = 'nutri-project';
@@ -34,6 +36,8 @@ export class AppComponent {
   macrosPorKg = new MacroPorKg();
   totalNutrientes = new TotalNutrientes();
   pesoAtual = 82;
+  static totalMacros:TotalKcal;
+  static totalNutrientes:TotalNutrientes;
 
   constructor(private scrollService: ScrollService) {}
 
@@ -46,11 +50,12 @@ export class AppComponent {
     // Util.calcularmacrosENutrientes(this.refeicoes)
     this.totalkcalPorRefeicao = Util.calcularTotalMacroPorRefeicao(this.refeicoes);
     this.totalMacroDia = Util.calcularMacroTotalDia(this.totalkcalPorRefeicao);
-    
+    AppComponent.totalMacros = this.totalMacroDia;
     this.distribuicaoMacros = Util.calcularDistribuicaoMacros(this.totalMacroDia);
     
     this.macrosPorKg = Util.calcularMacrosPorKg(this.totalMacroDia, this.pesoAtual);
     Util.calcularNutrientesTotais(this.refeicoes, this.totalNutrientes);
+    AppComponent.totalNutrientes = this.totalNutrientes;
 
     const savedState = localStorage.getItem('ocultarDetalhes');
     if (savedState) { 

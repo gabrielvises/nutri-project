@@ -1,0 +1,73 @@
+<div mat-dialog-title class="dialog-title">
+    {{ data.nome }}
+</div>
+
+<mat-dialog-content style="width: 550px; ">
+    <div mat-dialog-title class="dialog-title" style="padding-left: 0; padding-bottom: 0;margin-top: 0;">
+        Vitaminas e Minerais:
+    </div>
+
+    <div [ngClass]="getLabelClass(data.tipo)" class="label-colorido-info">{{ data.tipo }}</div>
+    <div class="scroll-container" #scrollContainer>
+        <div class="info">
+
+            <div class="item-total tabela-vitaminas">
+                <div class="tabela-cabecalho">
+                    <div>Nome</div>
+                    <div>Quantidade</div>
+                    <div>Total diário</div>
+                    <div>%</div>
+                </div>
+                <div *ngFor="let vitamina of vitaminas" class="tabela-linha">
+                    <div>{{vitamina.nome}}</div>
+                    <div class="tooltip-container">
+                        <span class="quantity">{{vitamina.total.toFixed(1)}} {{vitamina.unidade}}</span>
+                    </div>
+                    <div>{{vitamina.recomendado}} {{vitamina.unidade}}</div>
+                    <div>{{(vitamina.total*100/vitamina.recomendado).toFixed()}}%</div>
+
+
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+        <div *ngIf="data.tipo=='Receita'">
+            <div mat-dialog-title class="dialog-title" style="padding-left: 0; padding-bottom: 0;margin-top: 0;">
+                {{ data.nome }}
+            </div>
+
+
+            <div class="scroll-container" #scrollContainer>
+                <div *ngFor="let ingrediente of data.ingredientes" class="">
+                    <mat-card class="meal-card">
+                        <mat-card-header>
+                            <mat-card-title>
+                                <span class="less-bold">{{ ingrediente.nome }}</span> - {{ ingrediente.quantidade }}g
+                            </mat-card-title>
+                            <!-- Label colorido no canto direito -->
+                            <div [ngClass]="getLabelClass(ingrediente.tipo)" class="label-colorido">{{ ingrediente.tipo
+                                }}
+                            </div>
+                        </mat-card-header>
+                        <mat-card-content>
+                            <div class="macros">
+                                <div>Calorias: {{ ingrediente.macros.calorias.real.toFixed(2) }} kcal</div>
+                                <div>Proteína: {{ ingrediente.macros.proteina.real.toFixed(2) }}g</div>
+                                <div>Carboidratos: {{ ingrediente.macros.carboidratos.real.toFixed(2) }}g</div>
+                                <div>Gordura: {{ ingrediente.macros.gordura.real.toFixed(2) }}g</div>
+                                <div>Fibras: {{ ingrediente.macros.fibras.real.toFixed(2) }}g</div>
+                                <div>Açúcar: {{ ingrediente.macros.acucar.real.toFixed(2) }}g</div>
+                            </div>
+                        </mat-card-content>
+                    </mat-card>
+                </div>
+                <div [ngStyle]="{'height': '100%'}"></div>
+            </div>
+        </div>
+    </div>
+</mat-dialog-content>

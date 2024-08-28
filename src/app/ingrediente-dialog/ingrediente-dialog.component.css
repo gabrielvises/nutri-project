@@ -1,0 +1,141 @@
+.meal-card {
+    margin-bottom: 15px;
+    
+    border-radius: 4px;
+    box-shadow: 0px 1px 5px -1px rgba(0, 0, 0, 0.1), 0px 1px 1px 0px rgba(0, 0, 0, 0.07), 0px 1px 1px 0px rgba(0, 0, 0, 0.06);
+    
+  }
+
+  
+  .macros {
+    opacity: 1;
+    transition: opacity 0.3s ease;
+  }
+  
+  .macros-hidden {
+    opacity: 0;
+    height: 0;
+    overflow: hidden;
+  }
+  
+  .less-bold {
+    font-weight: 500;
+    
+  }
+  .info {
+    font-size: 18px;
+  }
+  
+
+  .espacados > div {
+    padding-bottom: 5px;
+  }
+  
+
+  
+  
+
+  
+  .scroll-container {
+    height: 100%; /* Garante que o contêiner de rolagem ocupe toda a altura disponível */
+    overflow-y: auto; /* Adiciona rolagem vertical se necessário */
+    padding: 10px; /* Adiciona espaçamento interno */
+    box-sizing: border-box; /* Inclui padding e bordas no cálculo da largura e altura */
+  }
+  
+
+
+  
+  .label-colorido {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: #222;
+    padding: 5px 10px;
+    min-width: 80px;
+    text-align: center;
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: bold;
+    white-space: nowrap;
+  }
+  .label-colorido-info {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: #222;
+    padding: 5px 10px;
+    min-width: 80px;
+    text-align: center;
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: bold;
+    white-space: nowrap;
+  }
+  
+
+  .ingredientes-adicionais {
+    margin: 15px 10px 0 15px;
+  }
+  
+  .ingrediente-card {
+    margin-bottom: 15px;
+  }
+  
+
+  .item-total.tabela {
+    display: table;
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .tabela-cabecalho {
+    text-align: center;
+  }
+  .tabela-cabecalho, .tabela-linha {
+    display: table-row;
+    
+  }
+  
+  .tabela-cabecalho div, .tabela-linha div {
+    display: table-cell;
+    padding: 8px;
+    border: 1px solid #ddd;
+  }
+  
+  .tabela-cabecalho div {
+    font-weight: bold;
+    background-color: #f4f4f4;
+  }
+  
+  .tabela-linha:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+
+  .item-total.tabela-vitaminas {
+    display: table;
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .tabela-cabecalho, .tabela-linha {
+    display: table-row;
+    
+  }
+
+  
+  .tabela-cabecalho div, .tabela-linha div {
+    display: table-cell;
+    padding: 3.5px; /* Reduz o padding */
+    border: 1px solid #ddd;
+    font-size: 15px; /* Ajusta o tamanho da fonte */
+  }
+  
+  .tabela-cabecalho div {
+    font-weight: bold;
+    background-color: #f4f4f4;
+  }
+  
+  .tabela-linha:nth-child(even) {
+    background-color: #f9f9f9;
+  }

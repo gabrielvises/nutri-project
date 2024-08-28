@@ -4,7 +4,9 @@ import { CommonModule } from '@angular/common';
 import { Alimento, TiposAlimento } from '../data/alimento';
 import { MatCardModule } from '@angular/material/card';
 import { ScrollService } from '../scroll.service';
-
+import { MatDialog } from '@angular/material/dialog';
+import { IngredienteDialogComponent } from '../ingrediente-dialog/ingrediente-dialog.component';
+import * as Util from '../util/util';
 
 
 
@@ -18,9 +20,13 @@ import { ScrollService } from '../scroll.service';
 })
 export class MeallistComponent {
 
+
   @ViewChild('scrollContainer', { static: false }) private scrollContainer!: ElementRef;
 
-  constructor(private scrollService: ScrollService) { }
+  ingredientes = ['Ingrediente 1', 'Ingrediente 2', 'Ingrediente 3'];
+
+
+  constructor(private scrollService: ScrollService, public dialog: MatDialog) { }
   @Input()
   refeicoes!: Alimento[][];
 
@@ -34,10 +40,10 @@ export class MeallistComponent {
     "Lanche da Tarde",
     "Janta",
     "Ceia",
+    "Adicionais",
   ]
 
   ngOnInit() {
-    console.log(this.refeicoes);
 
   }
   ngAfterViewInit(): void {
@@ -45,10 +51,10 @@ export class MeallistComponent {
     if (savedScrollTop) {
       this.scrollContainer.nativeElement.scrollTo({
         top: Number(savedScrollTop),
-        
+
       });
     }
-  
+
     // Adiciona um evento para salvar a posição do scroll sempre que ele mudar
     this.scrollContainer.nativeElement.addEventListener('scroll', () => {
       const scrollPosition = this.scrollContainer.nativeElement.scrollTop;
@@ -57,7 +63,7 @@ export class MeallistComponent {
     this.scrollService.scroll$.subscribe(index => {
       this.scrollToItem(index);
     });
-  } 
+  }
 
   scrollToItem(index: number): void {
     if (this.scrollContainer && this.scrollContainer.nativeElement) {
@@ -67,8 +73,7 @@ export class MeallistComponent {
       if (index >= 0 && index < items.length) {
         const item: any = items[index];
         const itemOffsetTop = item.offsetTop;
-        const containerHeight = container.clientHeight;
-        const itemHeight = item.clientHeight;
+
 
         container.scrollTo({
           top: itemOffsetTop,
@@ -80,41 +85,14 @@ export class MeallistComponent {
 
 
   getLabelClass(tipo: string): string {
-    switch (tipo) {
-      case 'Receita':
-        return 'label-receita';
-      case 'Fruta':
-        return 'label-fruta';
-      case 'Legumes':
-        return 'label-legumes';
-      case 'Suplemento':
-        return 'label-suplemento';
-      case 'Óleo':
-        return 'label-oleo';
-      case 'Proteína':
-        return 'label-proteina';
-      case 'Grão':
-        return 'label-grao';
-      case 'Vegetal':
-        return 'label-vegetal';
-      case 'Tubérculo':
-        return 'label-tuberculo';
-      case 'Leguminosa':
-        return 'label-leguminosa';
-      case 'Lácteo':
-        return 'label-lacteo';
-      case 'Fibra':
-        return 'label-fibra';
-      case 'Oleaginosa':
-        return 'label-oleaginosa';
-      case 'Condimento':
-        return 'label-condimento';
-      case 'Bebida':
-        return 'label-bebida';
-      // Adicione mais tipos conforme necessário
-      default:
-        return 'label-padrao';
-    }
+    return Util.getLabelClass(tipo);
+    
+      }
 
+
+  openDialog(alimento: Alimento): void {
+    this.dialog.open(IngredienteDialogComponent, {
+      data: alimento
+    });
   }
 }

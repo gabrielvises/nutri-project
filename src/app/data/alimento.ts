@@ -5,6 +5,7 @@ export class Alimento {
     macros: Macros;
     vitaminas: Vitaminas;
     minerais: Minerais;
+    ingredientes?: Alimento[];
   
     constructor(
       nome: string,
@@ -12,7 +13,8 @@ export class Alimento {
       tipo: string,
       macros: Macros,
       vitaminas: Vitaminas,
-      minerais: Minerais
+      minerais: Minerais,
+      ingredientes?: Alimento[] 
     ) {
       this.nome = nome;
       this.quantidade = quantidade;
@@ -20,6 +22,7 @@ export class Alimento {
       this.macros = macros;
       this.vitaminas = vitaminas;
       this.minerais = minerais;
+      this.ingredientes = ingredientes;
     }
   }
 
@@ -79,6 +82,7 @@ export class Alimento {
     static oleaginosa: string = "Oleaginosa";
     static condimento: string = "Condimento";
     static bebida: string = "Bebida";
+    static semente: string = "Semente";
     // x: string;
     // x: string;
     // x: string;

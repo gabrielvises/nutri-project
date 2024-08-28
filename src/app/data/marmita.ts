@@ -25,6 +25,7 @@ export class Marmita {
         const ingredientesfeijão: Alimento[] = [
             Util.setQuantidade(listaAlimentos.feijaoPreto, 1500),
             Util.setQuantidade(listaAlimentos.cebolaCrua, 51),
+            Util.setQuantidade(listaAlimentos.sal, 4),
         ];
 
         var cremeDeLeiteCaseiro = Util.calcularMacrosReceita("Creme de leite caseiro", ingredientesCremeDeLeite);
@@ -34,12 +35,14 @@ export class Marmita {
             Util.setQuantidade(listaAlimentos.batataDoce, 1000),
             Util.setQuantidade(listaAlimentos.leite, 130),
             Util.setQuantidade(listaAlimentos.azeiteDeOlive, 5),
+            Util.setQuantidade(listaAlimentos.sal, 4),
         ];
 
         const ingredientesstrogonoffdefrango: Alimento[] = [
             Util.setQuantidade(listaAlimentos.peitoDeFrango, 1571),
             Util.setQuantidade(listaAlimentos.azeiteDeOlive, 15),
             Util.setQuantidade(listaAlimentos.polpaDeTomate, 300),
+            Util.setQuantidade(listaAlimentos.sal, 5),
             cremeDeLeiteCaseiro,
             Util.setQuantidade(listaAlimentos.ketchup, 40),
             Util.setQuantidade(listaAlimentos.mostarda, 20),
@@ -76,7 +79,6 @@ export class Marmita {
             Util.setQuantidade(feijão, 130),
         ];
 
-        console.log();
     }
 }
 

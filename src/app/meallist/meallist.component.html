@@ -2,7 +2,7 @@
   <div *ngFor="let refeicao of refeicoes; let i = index">
     <h5 class="less-bold scroll-item">{{ refeicaoNome[i] }}</h5>
     <div *ngFor="let alimento of refeicao" class="">
-      <mat-card class="meal-card">
+      <mat-card class="meal-card" (click)="openDialog(alimento)">
         <mat-card-header>
           <mat-card-title>
             <span class="less-bold">{{ alimento.nome }}</span> - {{ alimento.quantidade }}g
