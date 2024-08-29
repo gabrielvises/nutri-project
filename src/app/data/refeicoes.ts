@@ -50,7 +50,7 @@ export class Refeicoes {
             Util.setQuantidade(listaAlimentos.sal, 3),
 
         ];
-        this.almoco = [ 
+        this.almoco = [
             ...marmita.marmita
         ];
         this.lancheDaTarde = [

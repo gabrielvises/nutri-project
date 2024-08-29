@@ -1,7 +1,7 @@
 <div class="scroll-container" #scrollContainer>
-  <div *ngFor="let refeicao of refeicoes; let i = index">
+  <div *ngFor="let refeicao of refeicoes; let i = index" class="sessão">
     <h5 class="less-bold scroll-item">{{ refeicaoNome[i] }}</h5>
-    <div *ngFor="let alimento of refeicao" class="">
+    <div *ngFor="let alimento of refeicao" >
       <mat-card class="meal-card" (click)="openDialog(alimento)">
         <mat-card-header>
           <mat-card-title>
