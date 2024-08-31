@@ -38,7 +38,7 @@
 
         <div *ngIf="data.tipo=='Receita'">
             <div mat-dialog-title class="dialog-title" style="padding-left: 0; padding-bottom: 0;margin-top: 0;">
-                {{ data.nome }}
+                Ingredientes
             </div>
 
 
@@ -47,7 +47,7 @@
                     <mat-card class="meal-card">
                         <mat-card-header>
                             <mat-card-title>
-                                <span class="less-bold">{{ ingrediente.nome }}</span> - {{ ingrediente.quantidade }}g
+                                <span class="less-bold">{{ ingrediente.nome }}</span> - {{ ingrediente.quantidade.toFixed(2) }}g
                             </mat-card-title>
                             <!-- Label colorido no canto direito -->
                             <div [ngClass]="getLabelClass(ingrediente.tipo)" class="label-colorido">{{ ingrediente.tipo

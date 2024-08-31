@@ -29,7 +29,7 @@ export class Marmita {
         ];
 
         var cremeDeLeiteCaseiro = Util.calcularMacrosReceita("Creme de leite caseiro", ingredientesCremeDeLeite);
-        var feijão = Util.calcularMacrosReceita("Feijão preto", ingredientesfeijão);
+        var feijão = Util.calcularMacrosReceita("Feijão preto", ingredientesfeijão,130);
 
         const ingredientespuredebatatadoce: Alimento[] = [
             Util.setQuantidade(listaAlimentos.batataDoce, 1000),

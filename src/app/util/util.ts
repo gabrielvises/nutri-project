@@ -1,5 +1,5 @@
 import { Alimento, TiposAlimento } from "../data/alimento";
-import {  Refeicoes } from "../data/refeicoes";
+import { Refeicoes } from "../data/refeicoes";
 import { DistribuicaoMacros, MacroPorKg, recomendado, TotalKcal, TotalNutrientes } from "../data/total";
 
 
@@ -24,9 +24,9 @@ export function lixo(calorias: number): Alimento {
             carboidratos: { ref: 0, real: 0 },
             gordura: { ref: 0, real: 0 },
             fibras: { ref: 0, real: 0 },
-            acucar: {ref: 0, real: 0},
-          },
-          {
+            acucar: { ref: 0, real: 0 },
+        },
+        {
             A: { ref: 0, real: 0 },
             B1: { ref: 0, real: 0 },
             B2: { ref: 0, real: 0 },
@@ -40,8 +40,8 @@ export function lixo(calorias: number): Alimento {
             D: { ref: 0, real: 0 },
             E: { ref: 0, real: 0 },
             K: { ref: 0.0, real: 0 }
-          },
-          {
+        },
+        {
             Cálcio: { ref: 0, real: 0 },
             Ferro: { ref: 0, real: 0 },
             Magnésio: { ref: 0, real: 0 },
@@ -49,15 +49,15 @@ export function lixo(calorias: number): Alimento {
             Potássio: { ref: 0, real: 0 },
             Sódio: { ref: 0, real: 0 },
             Zinco: { ref: 0, real: 0 }
-          }
-        );
-        
-        return retorno1;
-    };
+        }
+    );
+
+    return retorno1;
+};
 
 
 
-export function calcularMacrosReceita(nomeReceita: string, ingredientes: Alimento[]): Alimento {
+export function calcularMacrosReceita(nomeReceita: string, ingredientes: Alimento[], quantidade?: number): Alimento {
     // Inicializar os valores totais
     let totais = {
         calorias: 0,
@@ -124,6 +124,10 @@ export function calcularMacrosReceita(nomeReceita: string, ingredientes: Aliment
 
     });
 
+    if (!quantidade) {
+        quantidade = totais.pesoTotal;
+    }
+
     // Calcular os valores por 100g
     let resultado: Alimento = new Alimento(
         nomeReceita,
@@ -161,7 +165,7 @@ export function calcularMacrosReceita(nomeReceita: string, ingredientes: Aliment
             Sódio: { ref: (totais.Sódio / totais.pesoTotal) * 100, real: 0 },
             Zinco: { ref: (totais.Zinco / totais.pesoTotal) * 100, real: 0 }
         },
-        ingredientes,
+        ingredientes
     );
 
     return resultado;
@@ -170,7 +174,12 @@ export function calcularMacrosReceita(nomeReceita: string, ingredientes: Aliment
 
 
 export function calcularMacrosAlimento(alimento: Alimento, quantidade: number): Alimento {
-
+    if (alimento.ingredientes) {
+        alimento.ingredientes = alimento.ingredientes.map((x) => {
+            var temp = setQuantidade(x, (x.quantidade / alimento.quantidade * quantidade));
+            return temp;
+        });
+    }
     alimento.quantidade = quantidade;
     alimento.macros.calorias.real = (alimento.macros.calorias.ref * quantidade) / 100;
     alimento.macros.proteina.real = (alimento.macros.proteina.ref * quantidade) / 100;
@@ -198,6 +207,7 @@ export function calcularMacrosAlimento(alimento: Alimento, quantidade: number): 
     alimento.minerais.Potássio.real = (alimento.minerais.Potássio.ref * quantidade) / 100;
     alimento.minerais.Sódio.real = (alimento.minerais.Sódio.ref * quantidade) / 100;
     alimento.minerais.Zinco.real = (alimento.minerais.Zinco.ref * quantidade) / 100;
+
     return alimento;
 }
 
@@ -396,7 +406,7 @@ export function formatarTabelaNutrientes(totalNutrientes: TotalNutrientes, refei
     });
 
     return formatado;
-} 
+}
 
 interface NutrienteInfo {
     nome: string;
@@ -422,7 +432,7 @@ function gerarListasOrdenadasPorNutriente(refeicoes: Refeicoes) {
 
                 // Verifica se o item já existe na lista e soma a quantidade
                 const existente = nutrientesGlobais[vitamina].find(entry => entry.nome === item.nome);
-               
+
                 if (existente) {
                     existente.quantidade += quantidade;
                     existente.quantidadeDeAlimento += item.quantidade;
@@ -436,7 +446,7 @@ function gerarListasOrdenadasPorNutriente(refeicoes: Refeicoes) {
                 const quantidade = info.real; // Ajusta a quantidade do mineral
                 if (!nutrientesGlobais[mineral]) {
                     nutrientesGlobais[mineral] = [];
-                } 
+                }
 
                 // Verifica se o item já existe na lista e soma a quantidade
                 const existente = nutrientesGlobais[mineral].find(entry => entry.nome === item.nome);
@@ -444,7 +454,7 @@ function gerarListasOrdenadasPorNutriente(refeicoes: Refeicoes) {
                     existente.quantidade += quantidade;
                     existente.quantidadeDeAlimento += item.quantidade;
                 } else {
-                    nutrientesGlobais[mineral].push({  nome: item.nome, quantidadeDeAlimento: item.quantidade, quantidade: quantidade });
+                    nutrientesGlobais[mineral].push({ nome: item.nome, quantidadeDeAlimento: item.quantidade, quantidade: quantidade });
                 }
             }
         });
@@ -463,41 +473,41 @@ function gerarListasOrdenadasPorNutriente(refeicoes: Refeicoes) {
 export function getLabelClass(tipo: string): string {
 
     switch (tipo) {
-      case 'Receita':
-        return 'label-receita';
-      case 'Fruta':
-        return 'label-fruta';
-      case 'Legumes':
-        return 'label-legumes';
-      case 'Suplemento':
-        return 'label-suplemento';
-      case 'Óleo':
-        return 'label-oleo';
-      case 'Proteína':
-        return 'label-proteina';
-      case 'Grão':
-        return 'label-grao';
-      case 'Vegetal':
-        return 'label-vegetal';
-      case 'Tubérculo':
-        return 'label-tuberculo';
-      case 'Leguminosa':
-        return 'label-leguminosa';
-      case 'Lácteo':
-        return 'label-lacteo';
-      case 'Fibra':
-        return 'label-fibra';
-      case 'Oleaginosa':
-        return 'label-oleaginosa';
-      case 'Condimento':
-        return 'label-condimento';
-      case 'Bebida':
-        return 'label-bebida';
-      case 'Semente':
-        return 'label-semente';
-      // Adicione mais tipos conforme necessário
-      default:
-        return 'label-padrao';
+        case 'Receita':
+            return 'label-receita';
+        case 'Fruta':
+            return 'label-fruta';
+        case 'Legumes':
+            return 'label-legumes';
+        case 'Suplemento':
+            return 'label-suplemento';
+        case 'Óleo':
+            return 'label-oleo';
+        case 'Proteína':
+            return 'label-proteina';
+        case 'Grão':
+            return 'label-grao';
+        case 'Vegetal':
+            return 'label-vegetal';
+        case 'Tubérculo':
+            return 'label-tuberculo';
+        case 'Leguminosa':
+            return 'label-leguminosa';
+        case 'Lácteo':
+            return 'label-lacteo';
+        case 'Fibra':
+            return 'label-fibra';
+        case 'Oleaginosa':
+            return 'label-oleaginosa';
+        case 'Condimento':
+            return 'label-condimento';
+        case 'Bebida':
+            return 'label-bebida';
+        case 'Semente':
+            return 'label-semente';
+        // Adicione mais tipos conforme necessário
+        default:
+            return 'label-padrao';
     }
 
-  }
+}

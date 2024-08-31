@@ -23,7 +23,7 @@ export class MeallistComponent {
 
   @ViewChild('scrollContainer', { static: false }) private scrollContainer!: ElementRef;
 
-  ingredientes = ['Ingrediente 1', 'Ingrediente 2', 'Ingrediente 3'];
+
 
 
   constructor(private scrollService: ScrollService, public dialog: MatDialog) { }
