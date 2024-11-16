@@ -570,6 +570,84 @@ export const cebolaCrua = new Alimento(
   }
 );
 
+export const  macarrao = new Alimento(
+  "Macarrão pronto",
+  99999,
+  TiposAlimento.grao,
+  {
+    calorias: { ref: 138, real: 0 },
+    proteina: { ref: 4.8, real: 0 },
+    carboidratos: { ref: 27.4, real: 0 },
+    gordura: { ref: 0.77, real: 0 },
+    fibras: { ref: 1.15, real: 0 },
+    acucar: { ref: 1.35, real: 0 }
+  },
+  {
+    A: { ref: 0, real: 0 },
+    B1: { ref: 0, real: 0 },
+    B2: { ref: 0, real: 0 },
+    B3: { ref: 0, real: 0 },
+    B5: { ref: 0, real: 0 },
+    B6: { ref: 0, real: 0 },
+    B7: { ref: 0, real: 0 },
+    B9: { ref: 0, real: 0 },
+    B12: { ref: 0, real: 0 },
+    C: { ref: 0, real: 0 },
+    D: { ref: 0, real: 0 },
+    E: { ref: 0, real: 0 },
+    K: { ref: 0, real: 0 }
+  },
+  {
+    Cálcio: { ref: 0, real: 0 },
+    Ferro: { ref: 0, real: 0 },
+    Magnésio: { ref: 0, real: 0 },
+    Fósforo: { ref: 0, real: 0 },
+    Potássio: { ref: 0, real: 0 },
+    Sódio: { ref: 2.3, real: 0 },
+    Zinco: { ref: 0, real: 0 }
+  }
+);
+
+
+export const  macarraoIntegral = new Alimento(
+  "Macarrão integral pronto",
+  99999,
+  TiposAlimento.grao,
+  {
+    calorias: { ref: 143, real: 0 },
+    proteina: { ref: 5.21, real: 0 },
+    carboidratos: { ref: 26.56, real: 0 },
+    gordura: { ref: 1.04, real: 0 },
+    fibras: { ref: 3.33, real: 0 },
+    acucar: { ref: 1.46, real: 0 }
+  },
+  {
+    A: { ref: 0, real: 0 },
+    B1: { ref: 0, real: 0 },
+    B2: { ref: 0, real: 0 },
+    B3: { ref: 0, real: 0 },
+    B5: { ref: 0, real: 0 },
+    B6: { ref: 0, real: 0 },
+    B7: { ref: 0, real: 0 },
+    B9: { ref: 0, real: 0 },
+    B12: { ref: 0, real: 0 },
+    C: { ref: 0, real: 0 },
+    D: { ref: 0, real: 0 },
+    E: { ref: 0, real: 0 },
+    K: { ref: 0, real: 0 }
+  },
+  {
+    Cálcio: { ref: 0, real: 0 },
+    Ferro: { ref: 0, real: 0 },
+    Magnésio: { ref: 0, real: 0 },
+    Fósforo: { ref: 0, real: 0 },
+    Potássio: { ref: 0, real: 0 },
+    Sódio: { ref: 2.3, real: 0 },
+    Zinco: { ref: 0, real: 0 }
+  }
+);
+
+
 
 
 export const batataDoce = new Alimento(
@@ -1099,6 +1177,43 @@ export const queijoRicotta = new Alimento(
     Potássio: { ref: 112, real: 0 },
     Sódio: { ref: 283, real: 0 },
     Zinco: { ref: 0.5, real: 0 }
+  }
+);
+export const cremeRicotta = new Alimento(
+  "Creme de Ricotta light",
+  99999,
+  TiposAlimento.lacteo,
+  {
+    calorias: { ref: 102, real: 0 },
+    proteina: { ref: 7, real: 0 },
+    carboidratos: { ref: 2.7, real: 0 },
+    gordura: { ref: 7, real: 0 },
+    fibras: { ref: 0, real: 0 },
+    acucar: { ref: 2.7, real: 0 },
+  },
+  {
+    A: { ref: 0, real: 0 },
+    B1: { ref: 0, real: 0 },
+    B2: { ref: 0, real: 0 },
+    B3: { ref: 0, real: 0 },
+    B5: { ref: 0, real: 0 },
+    B6: { ref: 0, real: 0 },
+    B7: { ref: 0, real: 0 },
+    B9: { ref: 0, real: 0 },
+    B12: { ref: 0, real: 0 },
+    C: { ref: 0, real: 0 },
+    D: { ref: 0, real: 0 },
+    E: { ref: 0, real: 0 },
+    K: { ref: 0, real: 0 }
+  },
+  {
+    Cálcio: { ref: 0, real: 0 },
+    Ferro: { ref: 0, real: 0 },
+    Magnésio: { ref: 0, real: 0 },
+    Fósforo: { ref: 0, real: 0 },
+    Potássio: { ref: 0, real: 0 },
+    Sódio: { ref: 350, real: 0 },
+    Zinco: { ref: 0, real: 0 }
   }
 );
 

@@ -22,61 +22,87 @@ export class Marmita {
             Util.setQuantidade(listaAlimentos.agua, 250),
         ];
 
-        const ingredientesfeijão: Alimento[] = [
-            Util.setQuantidade(listaAlimentos.feijaoPreto, 1500),
-            Util.setQuantidade(listaAlimentos.cebolaCrua, 51),
-            Util.setQuantidade(listaAlimentos.sal, 4),
+        const ingredientesFeijão: Alimento[] = [
+            Util.setQuantidade(listaAlimentos.feijaoPreto, 1250),
+            
+            Util.setQuantidade(listaAlimentos.agua, 570),
+            Util.setQuantidade(listaAlimentos.sal, 10),
         ];
-
-        var cremeDeLeiteCaseiro = Util.calcularMacrosReceita("Creme de leite caseiro", ingredientesCremeDeLeite);
-        var feijão = Util.calcularMacrosReceita("Feijão preto", ingredientesfeijão,130);
+        const ingredientesMacarrao: Alimento[] = [
+            
+            Util.setQuantidade(listaAlimentos.macarrao, 1200),
+            Util.setQuantidade(listaAlimentos.sal, 15),
+            Util.setQuantidade(listaAlimentos.azeiteDeOlive, 10),
+                       
+        ];
+        const ingredientesMolhoBranco: Alimento[] = [
+            
+            Util.setQuantidade(listaAlimentos.cremeRicotta, 400),
+            Util.setQuantidade(listaAlimentos.leite, 600),
+            Util.setQuantidade(listaAlimentos.cebolaCrua, 80),
+            
+          
+            
+        ];
+        const ingredientesMolhoCarne: Alimento[] = [
+            
+            Util.setQuantidade(listaAlimentos.carnePatinho, 800),
+            Util.setQuantidade(listaAlimentos.polpaDeTomate, 300),
+            Util.setQuantidade(listaAlimentos.cebolaCrua, 120),
+            // Util.setQuantidade(listaAlimentos.tomateCereja, 70),
+            
+          
+            
+        ];
 
         const ingredientespuredebatatadoce: Alimento[] = [
-            Util.setQuantidade(listaAlimentos.batataDoce, 1000),
-            Util.setQuantidade(listaAlimentos.leite, 130),
+            Util.setQuantidade(listaAlimentos.batataDoce, 1070),
+            Util.setQuantidade(listaAlimentos.leite, 120),
             Util.setQuantidade(listaAlimentos.azeiteDeOlive, 5),
-            Util.setQuantidade(listaAlimentos.sal, 4),
+            Util.setQuantidade(listaAlimentos.sal, 3),
         ];
 
+
+
+        var cremeDeLeiteCaseiro = Util.calcularMacrosReceita("Creme de leite caseiro", ingredientesCremeDeLeite);
+
         const ingredientesstrogonoffdefrango: Alimento[] = [
-            Util.setQuantidade(listaAlimentos.peitoDeFrango, 1571),
+            Util.setQuantidade(listaAlimentos.peitoDeFrango, 1573),
             Util.setQuantidade(listaAlimentos.azeiteDeOlive, 15),
             Util.setQuantidade(listaAlimentos.polpaDeTomate, 300),
-            Util.setQuantidade(listaAlimentos.sal, 5),
+            Util.setQuantidade(listaAlimentos.sal, 10),
             cremeDeLeiteCaseiro,
             Util.setQuantidade(listaAlimentos.ketchup, 40),
             Util.setQuantidade(listaAlimentos.mostarda, 20),
-            Util.setQuantidade(listaAlimentos.cogumeloChampignon, 100),
-            Util.setQuantidade(listaAlimentos.cebolaCrua, 212),
+            Util.setQuantidade(listaAlimentos.cebolaCrua, 60),
+    ];
+        const ingredientesfrangoComMolho: Alimento[] = [
+            Util.setQuantidade(listaAlimentos.peitoDeFrango, 1200),
+            Util.setQuantidade(listaAlimentos.azeiteDeOlive, 15),
+            Util.setQuantidade(listaAlimentos.polpaDeTomate, 300),
+            Util.setQuantidade(listaAlimentos.sal, 10),
+            Util.setQuantidade(listaAlimentos.cebolaCrua, 180),
+            Util.setQuantidade(listaAlimentos.tomateCereja, 100),
     ];
 
-        // const ingredientesstrogonoffdecarne: Alimento[] = [
-        //     Util.setQuantidade(listaAlimentos.carnePatinho, 1600),
-        //     Util.setQuantidade(listaAlimentos.azeiteDeOlive, 20),
-        //     Util.setQuantidade(listaAlimentos.polpaDeTomate, 300),
-        //     cremeDeLeiteCaseiro,
-        //     Util.setQuantidade(listaAlimentos.ketchup, 40),
-        //     Util.setQuantidade(listaAlimentos.mostarda, 20),
-        // ];
-
-
+        var feijão = Util.calcularMacrosReceita("Feijão preto", ingredientesFeijão);
+        var macarrao = Util.calcularMacrosReceita("Macarrão", ingredientesMacarrao);
+        var molhoBranco = Util.calcularMacrosReceita("Molho branco", ingredientesMolhoBranco);
+        var molhoCarne = Util.calcularMacrosReceita("Molho de Carne", ingredientesMolhoCarne);
         var pure = Util.calcularMacrosReceita("Purê de Batata Doce", ingredientespuredebatatadoce);
         var strogonoffDeFrango = Util.calcularMacrosReceita("Strogonoff de Frango", ingredientesstrogonoffdefrango);
-        this.proteina = [
-            // util.alimento(strogonoff, 180), 
-            Util.setQuantidade(strogonoffDeFrango, 170),
-        ];
-        this.batatadoce = [
-            listaAlimentos.batataDoce,
-            Util.setQuantidade(pure, 80),
-        ];
+        var frangoComMolho = Util.calcularMacrosReceita("Frango com molho", ingredientesfrangoComMolho);
+
+
+
 
         this.marmita = [
-            this.proteina[0],
-            this.batatadoce[1],
-            Util.setQuantidade(listaAlimentos.arrozIntegral, 75),
-            Util.setQuantidade(listaAlimentos.brócolis, 25),
-            Util.setQuantidade(feijão, 130),
+            Util.setQuantidade(listaAlimentos.peitoDeFrango, 80), 
+            Util.setQuantidade(listaAlimentos.arrozIntegral, 65),
+            Util.setQuantidade(listaAlimentos.brócolis, 30),
+            Util.setQuantidade(macarrao, 130),
+            Util.setQuantidade(molhoBranco, 80),
+            Util.setQuantidade(molhoCarne, 110),
         ];
 
     }
